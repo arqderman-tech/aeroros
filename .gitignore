@@ -6,3 +6,4 @@ dumps/
 .env
 venv/
 .venv/
+opensky_aircraft_db.csv
