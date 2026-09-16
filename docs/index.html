@@ -733,8 +733,8 @@ function actualizarTabla() {
     return `<tr>
       <td>${fecha}</td>
       <td>${hora}</td>
-      <td>${v.vuelo}</td>
-      <td>${dirBadge}</td>
+<td>${(v.aerolinea_codigo ? v.aerolinea_codigo + ' ' : '') + (v.vuelo_norm || v.vuelo)}</td>
+<td>${dirBadge}</td>
       <td><span class="aero-dot" style="background:${color}"></span>${v.aerolinea_nombre || '—'}</td>
       <td>${v.ruta || v.origen_destino || '—'}</td>
       <td>${v.modelo_avion || '—'}</td>
