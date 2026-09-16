@@ -28,6 +28,14 @@ jobs:
           python-version: '3.11'
           cache: pip
 
+      - name: Cache OpenSky DB
+        uses: actions/cache@v4
+        with:
+          path: opensky_aircraft_db.csv
+          key: opensky-db-2025-08
+          restore-keys: |
+            opensky-db-
+
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
