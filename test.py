@@ -2,7 +2,7 @@
 # ---------------------------------------------------------------------------
 # Tablero ROS: FIDS + FR24 tablero + FR24 histórico + OpenSky + turnaround
 # + base de datos acumulativa SQLite + reportes de asientos
-# + correcciones manuales por matrícula.
+# + correcciones manuales por matrícula + export JSON para dashboard HTML.
 #
 # Requisitos:
 #   pip install requests pandas tabulate tqdm
@@ -77,6 +77,7 @@ FLEET_CACHE = "fleet_cache.json"
 HIST_CACHE = "fr24_history_cache.json"
 DB_PATH = "vuelos_ros.db"
 DUMP_DIR = "dumps"
+DASHBOARD_JSON = "docs/datos.json"
 
 FR24_PAUSA = 1.5
 FR24_HIST_PAUSA = 1.2
@@ -215,22 +216,13 @@ def _dump_json(name: str, data: Any) -> None:
 # MODELO Y NORMALIZACIÓN DE VUELO
 # ---------------------------------------------------------------------------
 def _extraer_aerolinea(num: str) -> str:
-    """Extrae código IATA (2 alfanuméricos con al menos 1 letra) o ICAO (3
-    letras). Aplica alias (W1 → DM).
-    """
     num = (num or "").strip().upper()
     if not num:
         return ""
-
-    # ICAO: 3 letras + dígito (AUA123)
     if len(num) >= 4 and num[:3].isalpha() and num[3].isdigit():
         return _aero_canonica(num[:3])
-
-    # IATA: 2 chars con al menos 1 letra + dígito (G3, 2W, CM)
     if len(num) >= 3 and any(c.isalpha() for c in num[:2]) and num[2].isdigit():
         return _aero_canonica(num[:2])
-
-    # Fallback: letras iniciales
     i = 0
     while i < len(num) and num[i].isalpha():
         i += 1
@@ -238,9 +230,6 @@ def _extraer_aerolinea(num: str) -> str:
 
 
 def _normalizar_vuelo(v: str) -> str:
-    """'G37722' → '7722', 'DM14256' → '4256', 'CM882' → '882', '7722' → '7722'.
-    Usa _extraer_aerolinea para quitar correctamente prefijos alfanuméricos.
-    """
     v = (v or "").strip().upper()
     if not v:
         return ""
@@ -249,7 +238,6 @@ def _normalizar_vuelo(v: str) -> str:
         resto = v[len(aero):]
         if resto:
             return resto
-    # Fallback: quitar solo letras iniciales
     i = 0
     while i < len(v) and v[i].isalpha():
         i += 1
@@ -460,7 +448,6 @@ def db_init() -> None:
                 asientos  INTEGER NOT NULL
             )
         """)
-        # Tabla de correcciones manuales por matrícula
         con.execute("""
             CREATE TABLE IF NOT EXISTS correcciones_matricula (
                 matricula  TEXT PRIMARY KEY,
@@ -471,7 +458,6 @@ def db_init() -> None:
                 notas      TEXT
             )
         """)
-        # Seed de correcciones conocidas
         con.execute("""
             INSERT OR IGNORE INTO correcciones_matricula
             VALUES ('HP-9820CMP', 'B38M', 'Boeing 737 MAX 8', 'Boeing', 'manual',
@@ -582,7 +568,6 @@ def calcular_asientos(con: sqlite3.Connection, aero: str, tipo: str) -> int:
         return 0
     tipo = _normalizar_tipo(tipo)
     aero = _aero_canonica(aero)
-
     if aero:
         r = con.execute(
             "SELECT asientos FROM capacidades_aeronaves "
@@ -590,7 +575,6 @@ def calcular_asientos(con: sqlite3.Connection, aero: str, tipo: str) -> int:
             (aero, tipo)).fetchone()
         if r:
             return r["asientos"]
-
     r = con.execute(
         "SELECT asientos FROM capacidades_genericas WHERE tipo_code=?",
         (tipo,)).fetchone()
@@ -598,27 +582,15 @@ def calcular_asientos(con: sqlite3.Connection, aero: str, tipo: str) -> int:
 
 
 def _cargar_correcciones(con: sqlite3.Connection) -> dict[str, dict]:
-    """Carga correcciones manuales indexadas por matrícula (upper)."""
     rows = con.execute("SELECT * FROM correcciones_matricula").fetchall()
     return {r["matricula"].upper(): dict(r) for r in rows}
 
 
 def db_migrar_todo() -> dict[str, int]:
-    """
-    Migración completa idempotente:
-      1. Aerolínea truncada (G → G3)
-      2. Alias (W1 → DM)
-      3. Tipos IATA → ICAO
-      3.5. Correcciones manuales por matrícula
-      4. Mismo avión → mismo tipo
-      5. Recalcular asientos
-      6. Limpiar filas huérfanas con vuelo_norm viejo
-    """
     con = db_conectar()
     stats = {"aero": 0, "alias": 0, "tipo": 0, "matricula": 0,
              "asientos": 0, "huerfanas": 0}
     try:
-        # --- 1+2: aerolíneas ---
         filas = con.execute(
             "SELECT rowid, vuelo, aerolinea_codigo FROM vuelos").fetchall()
         for f in filas:
@@ -628,7 +600,6 @@ def db_migrar_todo() -> dict[str, int]:
                 continue
             esperado_canonico = _aero_canonica(esperado)
             actual_canonico = _aero_canonica(actual)
-
             necesita_fix = False
             if not actual:
                 necesita_fix = True
@@ -638,7 +609,6 @@ def db_migrar_todo() -> dict[str, int]:
                 necesita_fix = True
             elif actual_canonico != esperado_canonico:
                 necesita_fix = True
-
             if necesita_fix and esperado_canonico:
                 if actual != esperado_canonico:
                     con.execute(
@@ -651,7 +621,6 @@ def db_migrar_todo() -> dict[str, int]:
         if stats["aero"] or stats["alias"]:
             con.commit()
 
-        # --- 3: tipos IATA → ICAO ---
         filas = con.execute(
             "SELECT rowid, icao_type_code FROM vuelos").fetchall()
         for f in filas:
@@ -667,7 +636,6 @@ def db_migrar_todo() -> dict[str, int]:
         if stats["tipo"]:
             con.commit()
 
-        # --- 3.5: correcciones manuales por matrícula ---
         correcciones = _cargar_correcciones(con)
         if correcciones:
             for mat, corr in correcciones.items():
@@ -682,7 +650,6 @@ def db_migrar_todo() -> dict[str, int]:
                     stats["matricula"] += cur.rowcount
             con.commit()
 
-        # --- 4: mismo avión → mismo tipo ---
         filas = con.execute("""
             SELECT matricula, icao_type_code, COUNT(*) as n
             FROM vuelos
@@ -710,7 +677,6 @@ def db_migrar_todo() -> dict[str, int]:
         if stats["matricula"]:
             con.commit()
 
-        # --- 5: recalcular asientos ---
         filas = con.execute(
             "SELECT rowid, aerolinea_codigo, icao_type_code, asientos "
             "FROM vuelos").fetchall()
@@ -728,21 +694,16 @@ def db_migrar_todo() -> dict[str, int]:
         if stats["asientos"]:
             con.commit()
 
-        # --- 6: limpiar huérfanas por vuelo_norm viejo ---
-        # Buscar filas donde vuelo_norm no matchea _normalizar_vuelo(vuelo)
         filas = con.execute(
-            "SELECT rowid, vuelo, vuelo_norm FROM vuelos").fetchall()
+            "SELECT rowid, vuelo, vuelo_norm, direccion, fecha FROM vuelos"
+        ).fetchall()
         for f in filas:
             esperado = _normalizar_vuelo(f["vuelo"] or "")
             if esperado and esperado != (f["vuelo_norm"] or ""):
-                # ¿Ya existe la fila con la clave correcta?
                 existe = con.execute(
                     "SELECT 1 FROM vuelos WHERE vuelo_norm=? AND direccion=? AND fecha=?",
-                    (esperado, f["direccion"] if "direccion" in f.keys() else "",
-                     f["fecha"] if "fecha" in f.keys() else "")
-                ).fetchone()
+                    (esperado, f["direccion"], f["fecha"])).fetchone()
                 if existe:
-                    # Borrar la huérfana
                     con.execute("DELETE FROM vuelos WHERE rowid=?", (f["rowid"],))
                     stats["huerfanas"] += 1
         if stats["huerfanas"]:
@@ -982,18 +943,13 @@ def db_stats() -> dict[str, Any]:
 # CORRECCIONES POR MATRÍCULA
 # ---------------------------------------------------------------------------
 def aplicar_correcciones_matricula(vuelos: list[Vuelo]) -> None:
-    """Corrige tipo/modelo de matrículas conocidas con datos erróneos.
-    Se llama después del histórico y antes del turnaround.
-    """
     con = db_conectar()
     try:
         correcciones = _cargar_correcciones(con)
     finally:
         con.close()
-
     if not correcciones:
         return
-
     n = 0
     for v in vuelos:
         if not v.matricula:
@@ -1876,6 +1832,59 @@ def exportar_reportes() -> None:
 
 
 # ---------------------------------------------------------------------------
+# EXPORT PARA DASHBOARD HTML
+# ---------------------------------------------------------------------------
+def exportar_json_dashboard(path: str = DASHBOARD_JSON) -> None:
+    """Exporta la DB completa a JSON para el dashboard HTML estático."""
+    con = db_conectar()
+    try:
+        filas = con.execute(
+            "SELECT * FROM vuelos ORDER BY horario_local ASC").fetchall()
+    finally:
+        con.close()
+
+    vuelos = []
+    for f in filas:
+        vuelos.append({
+            "vuelo": f["vuelo"] or "",
+            "vuelo_norm": f["vuelo_norm"] or "",
+            "fecha": f["fecha"] or "",
+            "horario_local": f["horario_local"] or "",
+            "horario_real": f["horario_real"] or "",
+            "direccion": f["direccion"] or "",
+            "estado": f["estado"] or "",
+            "ruta": f["ruta"] or "",
+            "origen_destino": f["origen_destino"] or "",
+            "aeropuerto_iata": f["aeropuerto_iata"] or "",
+            "aerolinea_codigo": f["aerolinea_codigo"] or "",
+            "aerolinea_nombre": f["aerolinea_nombre"] or "",
+            "aerolinea_color": f["aerolinea_color"] or "",
+            "matricula": f["matricula"] or "",
+            "modelo_avion": f["modelo_avion"] or "",
+            "fabricante": f["fabricante"] or "",
+            "icao_type_code": f["icao_type_code"] or "",
+            "operador": f["operador"] or "",
+            "asientos": f["asientos"] or 0,
+            "confianza": f["confianza"] or "",
+            "fuentes": f["fuentes"] or "",
+        })
+
+    payload = {
+        "generado": datetime.now(TZ_LOCAL).isoformat(timespec="minutes"),
+        "aeropuerto": AEROPUERTO,
+        "total": len(vuelos),
+        "vuelos": vuelos,
+    }
+
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+
+    size_kb = os.path.getsize(path) / 1024
+    print(f"[Dashboard] {path} — {len(vuelos)} vuelos ({size_kb:.1f} KB)")
+
+
+# ---------------------------------------------------------------------------
 # SALIDA
 # ---------------------------------------------------------------------------
 def exportar_csv(vuelos: list[Vuelo], path: str) -> None:
@@ -1958,6 +1967,8 @@ def main() -> int:
     ap.add_argument("--sin-historico", action="store_true")
     ap.add_argument("--sin-cache", action="store_true")
     ap.add_argument("--sin-reportes", action="store_true")
+    ap.add_argument("--sin-dashboard", action="store_true",
+                    help="No exportar docs/datos.json")
     ap.add_argument("--sin-migracion", action="store_true")
     ap.add_argument("--dump-raw", action="store_true")
     ap.add_argument("--debug-hist", metavar="VUELO", default=None)
@@ -2031,7 +2042,6 @@ def main() -> int:
         hist_cache = enriquecer_con_fr24_historico(
             vuelos, hist_cache, forzar_vuelo=args.debug_hist)
 
-    # Correcciones manuales por matrícula (después del histórico)
     print()
     aplicar_correcciones_matricula(vuelos)
 
@@ -2084,6 +2094,11 @@ def main() -> int:
     # 9) Reportes
     if not args.sin_reportes:
         exportar_reportes()
+
+    # 10) Export JSON para dashboard HTML
+    if not args.sin_dashboard:
+        print()
+        exportar_json_dashboard()
 
     return 0
 
