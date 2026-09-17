@@ -561,6 +561,18 @@ function construirBuckets(fechas, agrupar) {
 // [SCATTER] Función principal
 // ═══════════════════════════════════════════════════════════════
 function crearScatter(chartId, direccion) {
+  // 1) Destruir el chart previo y reemplazar el canvas por uno nuevo
+  if (charts[chartId]) {
+    charts[chartId].destroy();
+    delete charts[chartId];
+  }
+  const oldCanvas = document.getElementById(chartId);
+  if (!oldCanvas) return;
+  const newCanvas = document.createElement('canvas');
+  newCanvas.id = chartId;
+  oldCanvas.parentNode.replaceChild(newCanvas, oldCanvas);
+
+  // 2) Recolectar fechas del filtro actual
   const fechasSet = new Set();
   for (const v of datosFiltrados) {
     if (v.direccion !== direccion) continue;
@@ -568,8 +580,8 @@ function crearScatter(chartId, direccion) {
   }
   const fechas = [...fechasSet].sort();
 
+  // 3) Sin datos → chart vacío
   if (fechas.length === 0) {
-    if (charts[chartId]) charts[chartId].destroy();
     const ctx = document.getElementById(chartId).getContext('2d');
     charts[chartId] = new Chart(ctx, {
       type: 'scatter',
@@ -588,9 +600,11 @@ function crearScatter(chartId, direccion) {
     return;
   }
 
+  // 4) Agrupar si hace falta
   const agrupar = fechas.length >= UMBRAL_SEMANAS;
   const { buckets, labels, index: bucketIndex, agrupado } = construirBuckets(fechas, agrupar);
 
+  // 5) Agrupar puntos por aerolínea
   const porAero = new Map();
   for (const v of datosFiltrados) {
     if (v.direccion !== direccion) continue;
@@ -637,8 +651,7 @@ function crearScatter(chartId, direccion) {
   const ticksX = Array.from({length: 24}, (_, i) => i);
   const ticksY = Array.from({length: buckets.length}, (_, i) => i);
 
-  if (charts[chartId]) charts[chartId].destroy();
-
+  // 6) Crear el chart
   const ctx = document.getElementById(chartId).getContext('2d');
   charts[chartId] = new Chart(ctx, {
     type: 'scatter',
