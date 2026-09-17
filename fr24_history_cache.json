@@ -264,5 +264,19 @@
     "modelo": "Boeing 737-887",
     "hex": "e07581",
     "match_exacto": true
+  },
+  "AR|1708|2026-09-17": {
+    "tipo": "E190",
+    "matricula": "LV-FPS",
+    "modelo": "Embraer E190AR",
+    "hex": "e06413",
+    "match_exacto": true
+  },
+  "AR|1709|2026-09-17": {
+    "tipo": "E190",
+    "matricula": "LV-FPS",
+    "modelo": "Embraer E190AR",
+    "hex": "e06413",
+    "match_exacto": true
   }
 }

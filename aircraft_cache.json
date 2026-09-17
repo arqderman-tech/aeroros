@@ -1,13 +1,13 @@
 {
   "CM|882|Arrival": {
-    "matricula": "HP-9811CMP",
-    "modelo_avion": "Boeing 737 MAX 8",
-    "fabricante": "",
-    "icao_type_code": "B38M",
-    "icao24_hex": "0c21b9",
-    "operador": "",
+    "matricula": "HP-9802CMP",
+    "modelo_avion": "Boeing 737-800",
+    "fabricante": "Boeing",
+    "icao_type_code": "B738",
+    "icao24_hex": "0c21a4",
+    "operador": "Copa Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-09-16T22:02-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "CM|836|Departure": {
     "matricula": "HP-9820CMP",
@@ -17,7 +17,7 @@
     "icao24_hex": "0c21fc",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "CM|899|Arrival": {
     "matricula": "",
@@ -47,7 +47,7 @@
     "icao24_hex": "e80260",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1708|Arrival": {
     "matricula": "LV-CDY",
@@ -57,7 +57,7 @@
     "icao24_hex": "e03119",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "LA|2433|Departure": {
     "matricula": "CC-CPM",
@@ -67,7 +67,7 @@
     "icao24_hex": "e80260",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1709|Departure": {
     "matricula": "LV-CDY",
@@ -77,7 +77,7 @@
     "icao24_hex": "e03119",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1509|Arrival": {
     "matricula": "LV-GVA",
@@ -123,11 +123,11 @@
     "matricula": "",
     "modelo_avion": "Boeing 737-800",
     "fabricante": "Boeing",
-    "icao_type_code": "B38M",
+    "icao_type_code": "B738",
     "icao24_hex": "",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-09-16T16:31-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "G3|7723|Departure": {
     "matricula": "PR-XMO",
@@ -140,14 +140,14 @@
     "ultima_vez": "2026-09-16T16:31-03:00"
   },
   "DM|6676|Arrival": {
-    "matricula": "",
+    "matricula": "HI1103",
     "modelo_avion": "Boeing 737 MAX 8",
-    "fabricante": "Boeing",
+    "fabricante": "",
     "icao_type_code": "B38M",
-    "icao24_hex": "",
-    "operador": "",
-    "confianza": "historico",
-    "ultima_vez": "2026-09-16T16:31-03:00"
+    "icao24_hex": "0c4356",
+    "operador": "Arajet",
+    "confianza": "real",
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "DM|6677|Departure": {
     "matricula": "HI1133",
@@ -160,14 +160,14 @@
     "ultima_vez": "2026-09-16T16:31-03:00"
   },
   "LA|8170|Arrival": {
-    "matricula": "PR-MHK",
+    "matricula": "PR-TQC",
     "modelo_avion": "Airbus A320-214",
-    "fabricante": "Airbus",
+    "fabricante": "AIRBUS",
     "icao_type_code": "A320",
-    "icao24_hex": "e48053",
+    "icao24_hex": "e49763",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1704|Arrival": {
     "matricula": "LV-FSK",
@@ -177,7 +177,7 @@
     "icao24_hex": "e064cb",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1715|Departure": {
     "matricula": "LV-FSK",
@@ -187,17 +187,17 @@
     "icao24_hex": "e064cb",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "LA|8171|Departure": {
-    "matricula": "PR-MHK",
+    "matricula": "PR-TQC",
     "modelo_avion": "Airbus A320-214",
-    "fabricante": "Airbus",
+    "fabricante": "AIRBUS",
     "icao_type_code": "A320",
-    "icao24_hex": "e48053",
+    "icao24_hex": "e49763",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1714|Arrival": {
     "matricula": "LV-GVA",
@@ -247,7 +247,7 @@
     "icao24_hex": "e082d7",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "DM|4256|Arrival": {
     "matricula": "",
@@ -277,7 +277,7 @@
     "icao24_hex": "e082d7",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1705|Departure": {
     "matricula": "LV-HKW",
@@ -287,7 +287,7 @@
     "icao24_hex": "e082d7",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1076|Arrival": {
     "matricula": "",
@@ -297,7 +297,7 @@
     "icao24_hex": "",
     "operador": "",
     "confianza": "cache_modelo",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1976|Departure": {
     "matricula": "",
@@ -307,26 +307,26 @@
     "icao24_hex": "",
     "operador": "",
     "confianza": "cache_modelo",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1712|Arrival": {
-    "matricula": "LV-FVN",
+    "matricula": "LV-BYY",
     "modelo_avion": "Boeing 737-7BD",
     "fabricante": "Boeing",
     "icao_type_code": "B737",
-    "icao24_hex": "e0658e",
+    "icao24_hex": "e0648b",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   },
   "AR|1713|Departure": {
-    "matricula": "LV-FVN",
-    "modelo_avion": "Embraer E190",
+    "matricula": "LV-FRK",
+    "modelo_avion": "Embraer E190AR",
     "fabricante": "Embraer",
     "icao_type_code": "E190",
-    "icao24_hex": "e0658e",
+    "icao24_hex": "e0648b",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-17T15:51-03:00"
+    "ultima_vez": "2026-09-17T19:36-03:00"
   }
 }
