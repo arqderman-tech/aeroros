@@ -257,5 +257,12 @@
     "modelo": "",
     "hex": "",
     "match_exacto": true
+  },
+  "AR|1715|2026-09-17": {
+    "tipo": "B738",
+    "matricula": "LV-GVA",
+    "modelo": "Boeing 737-887",
+    "hex": "e07581",
+    "match_exacto": true
   }
 }
