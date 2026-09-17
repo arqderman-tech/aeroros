@@ -1,10 +1,10 @@
 ﻿ruta,vuelos,asientos_totales,aerolineas
-AEP → ROS,11,1484,1
+AEP → ROS,11,1490,1
 PTY → ROS,6,966,1
 PUJ → ROS,3,555,1
 LIM → ROS,3,492,1
 GIG → ROS,2,372,1
 GRU → ROS,2,348,1
-BRC → ROS,2,336,1
-SLA → ROS,1,168,1
-IGR → ROS,1,128,1
+BRC → ROS,2,340,1
+IGR → ROS,1,170,1
+SLA → ROS,1,170,1
