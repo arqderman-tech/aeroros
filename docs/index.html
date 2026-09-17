@@ -531,7 +531,7 @@ function crearChart(id, config) {
 // ═══════════════════════════════════════════════════════════════
 function lunesDeSemana(fechaIso) {
   const d = new Date(fechaIso + 'T12:00:00');
-  const dow = d.getDay();                 // 0=Dom, 1=Lun, ..., 6=Sáb
+  const dow = d.getDay();
   const diff = (dow === 0 ? -6 : 1 - dow);
   d.setDate(d.getDate() + diff);
   return d.toISOString().slice(0, 10);
@@ -561,7 +561,6 @@ function construirBuckets(fechas, agrupar) {
 // [SCATTER] Función principal
 // ═══════════════════════════════════════════════════════════════
 function crearScatter(chartId, direccion) {
-  // 1) Recolectar fechas del filtro actual
   const fechasSet = new Set();
   for (const v of datosFiltrados) {
     if (v.direccion !== direccion) continue;
@@ -579,6 +578,7 @@ function crearScatter(chartId, direccion) {
         responsive: true, maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
+          datalabels: { display: false },
           title: { display: true, text: 'Sin vuelos en el filtro actual',
                    color: '#8a95a1', font: { size: 14 } }
         },
@@ -588,11 +588,9 @@ function crearScatter(chartId, direccion) {
     return;
   }
 
-  // 2) Decidir agrupación
   const agrupar = fechas.length >= UMBRAL_SEMANAS;
   const { buckets, labels, index: bucketIndex, agrupado } = construirBuckets(fechas, agrupar);
 
-  // 3) Agrupar puntos por aerolínea
   const porAero = new Map();
   for (const v of datosFiltrados) {
     if (v.direccion !== direccion) continue;
@@ -632,16 +630,15 @@ function crearScatter(chartId, direccion) {
       pointHoverRadius: 9,
       pointBorderColor: '#0f1419',
       pointBorderWidth: 1,
+      datalabels: { display: false },
     });
   }
 
   const ticksX = Array.from({length: 24}, (_, i) => i);
   const ticksY = Array.from({length: buckets.length}, (_, i) => i);
 
-  // 4) Destruir chart previo
   if (charts[chartId]) charts[chartId].destroy();
 
-  // 5) Crear el chart
   const ctx = document.getElementById(chartId).getContext('2d');
   charts[chartId] = new Chart(ctx, {
     type: 'scatter',
@@ -671,7 +668,8 @@ function crearScatter(chartId, direccion) {
               ];
             }
           }
-        }
+        },
+        datalabels: { display: false },
       },
       scales: {
         x: {
@@ -761,7 +759,7 @@ function actualizarCharts() {
   crearChart('ch-dia', {
     type: 'line',
     data: {
-      labels: diasOrd.map(d => d.slice(5)),  // MM-DD
+      labels: diasOrd.map(d => d.slice(5)),
       datasets: [{
         label: 'Vuelos',
         data: diasOrd.map(d => porDia.get(d).length),
@@ -925,6 +923,7 @@ function actualizarCharts() {
     data: mesesAero.map(m => porMesAero.get(m)[aero] || 0),
     backgroundColor: PALETA[i % PALETA.length],
     borderRadius: 4,
+    datalabels: { display: false },
   }));
   crearChart('ch-mes-aero', {
     type: 'bar',
