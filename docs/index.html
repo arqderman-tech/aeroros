@@ -161,9 +161,6 @@ main { padding: 24px 28px 60px; max-width: 1600px; margin: 0 auto; }
 .card.full { grid-column: 1 / -1; }
 .chart-container { position: relative; height: 280px; }
 .chart-container.tall { height: 380px; }
-/* ═══════════════ SCATTER (bloque nuevo) ═══════════════ */
-.chart-container.scatter { height: 500px; }
-/* ═══════════════ fin SCATTER ═══════════════ */
 
 /* Tabla */
 .table-wrap {
@@ -333,23 +330,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
       <h3>Vuelos por mes y aerolínea (apilado)</h3>
       <div class="chart-container tall"><canvas id="ch-mes-aero"></canvas></div>
     </div>
-
-    <!-- ═══════════════════════════════════════════════════════════════
-         BLOQUE SCATTER — INICIO
-         Para sacarlo: borrá este bloque <div> completo y las líneas
-         marcadas con "[SCATTER]" en el <script>.
-         ═══════════════════════════════════════════════════════════════ -->
-    <div class="card full">
-      <h3>Arribos · cada punto es un vuelo</h3>
-      <div class="chart-container scatter"><canvas id="ch-scatter-arr"></canvas></div>
-    </div>
-    <div class="card full">
-      <h3>Partidas · cada punto es un vuelo</h3>
-      <div class="chart-container scatter"><canvas id="ch-scatter-dep"></canvas></div>
-    </div>
-    <!-- ═══════════════════════════════════════════════════════════════
-         BLOQUE SCATTER — FIN
-         ═══════════════════════════════════════════════════════════════ -->
   </div>
 
   <div class="table-wrap">
@@ -384,12 +364,6 @@ Chart.register(ChartDataLabels);
 
 // Paleta para aerolíneas sin color propio
 const PALETA = ['#4ea8de','#f4a261','#2ecc71','#e74c3c','#9b59b6','#f1c40f','#1abc9c','#e67e22','#3498db','#e84393','#00b894','#6c5ce7'];
-
-// ═══════════════════════════════════════════════════════════════
-// [SCATTER] Umbral de agrupación por semana
-// Si el filtro tiene más de 20 días, agrupa por semana ISO
-// ═══════════════════════════════════════════════════════════════
-const UMBRAL_SEMANAS = 20;
 
 let datos = [];
 let datosFiltrados = [];
@@ -525,220 +499,6 @@ function crearChart(id, config) {
   const ctx = document.getElementById(id).getContext('2d');
   charts[id] = new Chart(ctx, config);
 }
-
-// ═══════════════════════════════════════════════════════════════
-// [SCATTER] Helpers de agrupación por semana
-// ═══════════════════════════════════════════════════════════════
-function lunesDeSemana(fechaIso) {
-  const d = new Date(fechaIso + 'T12:00:00');
-  const dow = d.getDay();
-  const diff = (dow === 0 ? -6 : 1 - dow);
-  d.setDate(d.getDate() + diff);
-  return d.toISOString().slice(0, 10);
-}
-
-function construirBuckets(fechas, agrupar) {
-  if (!agrupar) {
-    return {
-      buckets: fechas.slice(),
-      labels: fechas.map(f => f.slice(8, 10) + '/' + f.slice(5, 7)),
-      index: Object.fromEntries(fechas.map((f, i) => [f, i])),
-      agrupado: false,
-    };
-  }
-  const setSemanas = new Set();
-  for (const f of fechas) setSemanas.add(lunesDeSemana(f));
-  const buckets = [...setSemanas].sort();
-  const index = {};
-  for (const f of fechas) {
-    index[f] = buckets.indexOf(lunesDeSemana(f));
-  }
-  const labels = buckets.map(f => 'Sem ' + f.slice(8, 10) + '/' + f.slice(5, 7));
-  return { buckets, labels, index, agrupado: true };
-}
-
-// ═══════════════════════════════════════════════════════════════
-// [SCATTER] Función principal
-// ═══════════════════════════════════════════════════════════════
-function crearScatter(chartId, direccion) {
-  // 1) Destruir el chart previo y reemplazar el canvas por uno nuevo
-  if (charts[chartId]) {
-    charts[chartId].destroy();
-    delete charts[chartId];
-  }
-  const oldCanvas = document.getElementById(chartId);
-  if (!oldCanvas) return;
-  const newCanvas = document.createElement('canvas');
-  newCanvas.id = chartId;
-  oldCanvas.parentNode.replaceChild(newCanvas, oldCanvas);
-
-  // 2) Recolectar fechas del filtro actual
-  const fechasSet = new Set();
-  for (const v of datosFiltrados) {
-    if (v.direccion !== direccion) continue;
-    if (v.fecha) fechasSet.add(v.fecha);
-  }
-  const fechas = [...fechasSet].sort();
-
-  // 3) Sin datos → chart vacío
-  if (fechas.length === 0) {
-    const ctx = document.getElementById(chartId).getContext('2d');
-    charts[chartId] = new Chart(ctx, {
-      type: 'scatter',
-      data: { datasets: [] },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          datalabels: { display: false },
-          title: { display: true, text: 'Sin vuelos en el filtro actual',
-                   color: '#8a95a1', font: { size: 14 } }
-        },
-        scales: { x: { display: false }, y: { display: false } }
-      }
-    });
-    return;
-  }
-
-  // 4) Agrupar si hace falta
-  const agrupar = fechas.length >= UMBRAL_SEMANAS;
-  const { buckets, labels, index: bucketIndex, agrupado } = construirBuckets(fechas, agrupar);
-
-  // 5) Agrupar puntos por aerolínea
-  const porAero = new Map();
-  for (const v of datosFiltrados) {
-    if (v.direccion !== direccion) continue;
-    if (!v.fecha || !v.horario_local) continue;
-    const hora = parseInt(v.horario_local.slice(11, 13), 10);
-    const minuto = parseInt(v.horario_local.slice(14, 16), 10);
-    if (isNaN(hora)) continue;
-    const x = hora + (isNaN(minuto) ? 0 : minuto / 60);
-    const y = bucketIndex[v.fecha];
-    if (y === undefined) continue;
-
-    const aero = v.aerolinea_nombre || 'Sin aerolínea';
-    if (!porAero.has(aero)) {
-      porAero.set(aero, { color: v.aerolinea_color || '#4ea8de', puntos: [] });
-    }
-    porAero.get(aero).puntos.push({
-      x, y, v,
-      meta: {
-        fecha: v.fecha,
-        hora: v.horario_local.slice(11, 16),
-        aero,
-        modelo: v.modelo_avion || '—',
-        matricula: v.matricula || '—',
-        ruta: v.ruta || '—',
-      }
-    });
-  }
-
-  const datasets = [];
-  for (const [aero, info] of porAero.entries()) {
-    datasets.push({
-      label: aero,
-      data: info.puntos,
-      backgroundColor: info.color,
-      borderColor: info.color,
-      pointRadius: 6,
-      pointHoverRadius: 9,
-      pointBorderColor: '#0f1419',
-      pointBorderWidth: 1,
-      datalabels: { display: false },
-    });
-  }
-
-  const ticksX = Array.from({length: 24}, (_, i) => i);
-  const ticksY = Array.from({length: buckets.length}, (_, i) => i);
-
-  // 6) Crear el chart
-  const ctx = document.getElementById(chartId).getContext('2d');
-  charts[chartId] = new Chart(ctx, {
-    type: 'scatter',
-    data: { datasets },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      layout: { padding: { left: 10, right: 10, top: 10, bottom: 10 } },
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: { color: '#e6e9ec', boxWidth: 12, padding: 12, usePointStyle: true }
-        },
-        tooltip: {
-          callbacks: {
-            title: (items) => {
-              const m = items[0].raw.meta;
-              return m.fecha + ' ' + m.hora;
-            },
-            label: (item) => {
-              const m = item.raw.meta;
-              return [
-                'Aerolínea: ' + m.aero,
-                'Modelo: ' + m.modelo,
-                'Matrícula: ' + m.matricula,
-                'Ruta: ' + m.ruta,
-              ];
-            }
-          }
-        },
-        datalabels: { display: false },
-      },
-      scales: {
-        x: {
-          type: 'linear',
-          min: 0,
-          max: 23,
-          title: {
-            display: true,
-            text: 'Hora del día',
-            color: '#e6e9ec',
-            font: { size: 13, weight: 'bold' },
-            padding: { top: 10, bottom: 10 }
-          },
-          afterBuildTicks: (axis) => {
-            axis.ticks = ticksX.map(v => ({ value: v }));
-          },
-          ticks: {
-            color: '#e6e9ec',
-            autoSkip: false,
-            maxRotation: 0,
-            minRotation: 0,
-            font: { size: 11 },
-            callback: (v) => String(v).padStart(2, '0'),
-          },
-          grid: { color: 'rgba(45,54,64,0.4)' }
-        },
-        y: {
-          type: 'linear',
-          min: 0,
-          max: Math.max(buckets.length - 1, 0),
-          title: {
-            display: true,
-            text: agrupado ? 'Semana' : 'Fecha',
-            color: '#e6e9ec',
-            font: { size: 13, weight: 'bold' },
-            padding: { top: 10, bottom: 10 }
-          },
-          afterBuildTicks: (axis) => {
-            axis.ticks = ticksY.map(v => ({ value: v }));
-          },
-          ticks: {
-            color: '#e6e9ec',
-            autoSkip: true,
-            maxTicksLimit: 30,
-            font: { size: 11 },
-            callback: (v) => labels[v] || '',
-          },
-          grid: { color: 'rgba(45,54,64,0.4)' }
-        }
-      }
-    }
-  });
-}
-// ═══════════════════════════════════════════════════════════════
-// [SCATTER] Fin de la función
-// ═══════════════════════════════════════════════════════════════
 
 // --- Charts ---
 function actualizarCharts() {
@@ -936,7 +696,6 @@ function actualizarCharts() {
     data: mesesAero.map(m => porMesAero.get(m)[aero] || 0),
     backgroundColor: PALETA[i % PALETA.length],
     borderRadius: 4,
-    datalabels: { display: false },
   }));
   crearChart('ch-mes-aero', {
     type: 'bar',
@@ -953,15 +712,6 @@ function actualizarCharts() {
       }
     }
   });
-
-  // ═══════════════════════════════════════════════════════════════
-  // [SCATTER] Llamadas a los scatters (respetan los filtros)
-  // ═══════════════════════════════════════════════════════════════
-  crearScatter('ch-scatter-arr', 'Arrival');
-  crearScatter('ch-scatter-dep', 'Departure');
-  // ═══════════════════════════════════════════════════════════════
-  // [SCATTER] Fin de las llamadas
-  // ═══════════════════════════════════════════════════════════════
 }
 
 // --- Tabla ---
