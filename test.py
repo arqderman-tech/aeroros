@@ -482,12 +482,17 @@ def db_init() -> None:
             _seed_capacidades_parcial(con)
 
         # Forzar valores actualizados de capacidades específicas
-        # (por si el seed cambió y la DB ya tenía el valor viejo)
         con.execute("""
             UPDATE capacidades_aeronaves
             SET asientos = 170
             WHERE aerolinea_codigo = 'AR' AND tipo_code = 'B738'
               AND asientos != 170
+        """)
+        con.execute("""
+            UPDATE capacidades_aeronaves
+            SET asientos = 137
+            WHERE aerolinea_codigo = 'AR' AND tipo_code = 'B737'
+              AND asientos != 137
         """)
 
         con.commit()
@@ -500,7 +505,7 @@ def _catalogo_capacidades_aero() -> list[tuple]:
         ("CM", "B738", "Boeing 737-800",     160, "seatguru"),
         ("CM", "B38M", "Boeing 737 MAX 8",   166, "seatguru"),
         ("CM", "B39M", "Boeing 737 MAX 9",   166, "seatguru"),
-        ("AR", "B737", "Boeing 737-700",     128, "aerolineas"),
+        ("AR", "B737", "Boeing 737-700",     137, "aerolineas"),
         ("AR", "B738", "Boeing 737-800",     170, "aerolineas"),
         ("AR", "B38M", "Boeing 737 MAX 8",   170, "aerolineas"),
         ("AR", "E190", "Embraer E190AR",      96, "aerolineas"),
@@ -702,7 +707,7 @@ def db_migrar_todo() -> dict[str, int]:
         if stats["matricula"]:
             con.commit()
 
-        # 5: recalcular asientos (si el tipo cambió)
+        # 5: recalcular asientos
         filas = con.execute(
             "SELECT rowid, aerolinea_codigo, icao_type_code, asientos "
             "FROM vuelos").fetchall()
@@ -770,7 +775,7 @@ def db_migrar_todo() -> dict[str, int]:
             con.commit()
 
         # 9: forzar recálculo de asientos en TODA la DB (por si cambió
-        # la capacidad de algún tipo, ej. AR 737-800 de 168 → 170)
+        # la capacidad de algún tipo, ej. AR 737-700 de 128 → 137)
         filas = con.execute(
             "SELECT rowid, aerolinea_codigo, icao_type_code, asientos FROM vuelos"
         ).fetchall()
@@ -899,7 +904,7 @@ def db_upsert(v: Vuelo) -> str:
             if accion == "noop":
                 accion = "update_parcial"
 
-        # Forzar recálculo de asientos SIEMPRE (no solo si eran 0)
+        # Forzar recálculo de asientos SIEMPRE
         if asientos and asientos != (fila["asientos"] or 0):
             updates["asientos"] = asientos
             if accion == "noop":
@@ -1456,8 +1461,7 @@ def enriquecer_con_fr24_historico(
     hits_cache = 0
     pendientes: list[Vuelo] = []
     for v in vuelos:
-        # Solo saltear si ya es real Y está fuera de la ventana ±2 días
-        # (dentro de esa ventana, el histórico puede corregir errores del tablero)
+        # Solo saltear si es real Y está fuera de la ventana ±2 días
         if v.confianza == "real":
             try:
                 f_v = datetime.strptime(v.fecha_iso(), "%Y-%m-%d").date()
