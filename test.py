@@ -93,7 +93,7 @@ CONF_NUM = {
 
 
 # ---------------------------------------------------------------------------
-# NOMBRES DE AEROLÍNEAS (fallback cuando FR24 no da nombre)
+# NOMBRES DE AEROLÍNEAS
 # ---------------------------------------------------------------------------
 NOMBRES_AEROLINEAS: dict[str, str] = {
     "CM": "Copa Airlines",
@@ -241,9 +241,6 @@ def _extraer_aerolinea(num: str) -> str:
 
 
 def _normalizar_vuelo(v: str) -> str:
-    """'G37722' → '7722', 'W14256' → '4256', 'CM882' → '882', '7722' → '7722'.
-    Usa el prefijo RAW (sin aplicar alias) para que W1→DM no rompa el strip.
-    """
     v = (v or "").strip().upper()
     if not v:
         return ""
@@ -484,6 +481,15 @@ def db_init() -> None:
         else:
             _seed_capacidades_parcial(con)
 
+        # Forzar valores actualizados de capacidades específicas
+        # (por si el seed cambió y la DB ya tenía el valor viejo)
+        con.execute("""
+            UPDATE capacidades_aeronaves
+            SET asientos = 170
+            WHERE aerolinea_codigo = 'AR' AND tipo_code = 'B738'
+              AND asientos != 170
+        """)
+
         con.commit()
     finally:
         con.close()
@@ -495,7 +501,7 @@ def _catalogo_capacidades_aero() -> list[tuple]:
         ("CM", "B38M", "Boeing 737 MAX 8",   166, "seatguru"),
         ("CM", "B39M", "Boeing 737 MAX 9",   166, "seatguru"),
         ("AR", "B737", "Boeing 737-700",     128, "aerolineas"),
-        ("AR", "B738", "Boeing 737-800",     168, "aerolineas"),
+        ("AR", "B738", "Boeing 737-800",     170, "aerolineas"),
         ("AR", "B38M", "Boeing 737 MAX 8",   170, "aerolineas"),
         ("AR", "E190", "Embraer E190AR",      96, "aerolineas"),
         ("AR", "E195", "Embraer E195AR",      96, "aerolineas"),
@@ -696,7 +702,7 @@ def db_migrar_todo() -> dict[str, int]:
         if stats["matricula"]:
             con.commit()
 
-        # 5: recalcular asientos
+        # 5: recalcular asientos (si el tipo cambió)
         filas = con.execute(
             "SELECT rowid, aerolinea_codigo, icao_type_code, asientos "
             "FROM vuelos").fetchall()
@@ -763,6 +769,24 @@ def db_migrar_todo() -> dict[str, int]:
         if correcciones:
             con.commit()
 
+        # 9: forzar recálculo de asientos en TODA la DB (por si cambió
+        # la capacidad de algún tipo, ej. AR 737-800 de 168 → 170)
+        filas = con.execute(
+            "SELECT rowid, aerolinea_codigo, icao_type_code, asientos FROM vuelos"
+        ).fetchall()
+        for f in filas:
+            aero = _aero_canonica(f["aerolinea_codigo"] or "")
+            tipo = _normalizar_tipo(f["icao_type_code"] or "")
+            if not tipo:
+                continue
+            nuevo = calcular_asientos(con, aero, tipo)
+            if nuevo and nuevo != (f["asientos"] or 0):
+                con.execute("UPDATE vuelos SET asientos=? WHERE rowid=?",
+                            (nuevo, f["rowid"]))
+                stats["asientos"] += 1
+        if stats["asientos"]:
+            con.commit()
+
         return stats
     finally:
         con.close()
@@ -804,7 +828,7 @@ def db_upsert(v: Vuelo) -> str:
             v.aerolinea_nombre = NOMBRES_AEROLINEAS.get(aero, "")
         asientos = calcular_asientos(con, aero, v.icao_type_code)
 
-        # ¿Hay una corrección manual activa para esta matrícula?
+        # ¿Hay corrección manual por matrícula?
         correccion_matricula = False
         if v.matricula:
             r = con.execute(
@@ -874,14 +898,14 @@ def db_upsert(v: Vuelo) -> str:
             updates["ruta"] = ruta
             if accion == "noop":
                 accion = "update_parcial"
+
+        # Forzar recálculo de asientos SIEMPRE (no solo si eran 0)
         if asientos and asientos != (fila["asientos"] or 0):
             updates["asientos"] = asientos
             if accion == "noop":
                 accion = "update_parcial"
 
         mejora_conf = nuevo_conf > conf_vieja
-        # Si hay una corrección manual para la matrícula, forzamos la actualización
-        # sin importar la confianza (es dato autoritativo)
         for campo in CAMPOS_AERONAVE:
             nuevo = getattr(v, campo, "") or ""
             viejo = fila[campo] or ""
@@ -1432,8 +1456,16 @@ def enriquecer_con_fr24_historico(
     hits_cache = 0
     pendientes: list[Vuelo] = []
     for v in vuelos:
+        # Solo saltear si ya es real Y está fuera de la ventana ±2 días
+        # (dentro de esa ventana, el histórico puede corregir errores del tablero)
         if v.confianza == "real":
-            continue
+            try:
+                f_v = datetime.strptime(v.fecha_iso(), "%Y-%m-%d").date()
+                hoy = datetime.now(TZ_LOCAL).date()
+                if abs((f_v - hoy).days) > 2:
+                    continue
+            except ValueError:
+                continue
         if v.modelo_avion and v.matricula and v.confianza == "historico":
             continue
         if v.modelo_avion and not v.matricula:
