@@ -243,5 +243,19 @@
     "modelo": "Airbus A320-271N",
     "hex": "e4953d",
     "match_exacto": true
+  },
+  "AR|1712|2026-09-18": {
+    "tipo": "B737",
+    "matricula": "LV-BYY",
+    "modelo": "Boeing 737-7BD",
+    "hex": "e02659",
+    "match_exacto": true
+  },
+  "AR|1713|2026-09-18": {
+    "tipo": "E190",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true
   }
 }
