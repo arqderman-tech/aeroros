@@ -10,14 +10,14 @@
     "ultima_vez": "2026-09-17T19:58-03:00"
   },
   "CM|836|Departure": {
-    "matricula": "HP-9811CMP",
-    "modelo_avion": "Boeing 737-800",
+    "matricula": "HP-9802CMP",
+    "modelo_avion": "Boeing 737 MAX 8",
     "fabricante": "Boeing",
-    "icao_type_code": "B738",
+    "icao_type_code": "B38M",
     "icao24_hex": "0c21b9",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "CM|899|Arrival": {
     "matricula": "",
@@ -31,13 +31,13 @@
   },
   "CM|897|Departure": {
     "matricula": "HP-9814CMP",
-    "modelo_avion": "Boeing 737-800",
+    "modelo_avion": "Boeing 737 MAX 8",
     "fabricante": "Boeing",
-    "icao_type_code": "B738",
+    "icao_type_code": "B38M",
     "icao24_hex": "0c21de",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "LA|2432|Arrival": {
     "matricula": "CC-CPM",
@@ -77,7 +77,7 @@
     "icao24_hex": "e03248",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1509|Arrival": {
     "matricula": "LV-GUC",
@@ -87,7 +87,7 @@
     "icao24_hex": "e07543",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1508|Departure": {
     "matricula": "LV-CMA",
@@ -97,7 +97,7 @@
     "icao24_hex": "e03341",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1706|Arrival": {
     "matricula": "LV-CPJ",
@@ -167,17 +167,17 @@
     "icao24_hex": "e49763",
     "operador": "LATAM Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1704|Arrival": {
     "matricula": "LV-GGQ",
-    "modelo_avion": "Boeing 737-8HX",
+    "modelo_avion": "Boeing 737-800",
     "fabricante": "Boeing",
     "icao_type_code": "B738",
     "icao24_hex": "e071d1",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1715|Departure": {
     "matricula": "LV-CEV",
@@ -187,7 +187,7 @@
     "icao24_hex": "e03156",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "LA|8171|Departure": {
     "matricula": "PR-TQC",
@@ -197,7 +197,7 @@
     "icao24_hex": "e49763",
     "operador": "LATAM Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1714|Arrival": {
     "matricula": "LV-CEV",
@@ -207,7 +207,7 @@
     "icao24_hex": "e03156",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1711|Arrival": {
     "matricula": "LV-CXT",
@@ -271,23 +271,23 @@
   },
   "AR|1716|Arrival": {
     "matricula": "LV-FYK",
-    "modelo_avion": "Boeing 737-8MB",
+    "modelo_avion": "Boeing 737-800",
     "fabricante": "Boeing",
     "icao_type_code": "B738",
     "icao24_hex": "e0664b",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1705|Departure": {
     "matricula": "LV-FYK",
-    "modelo_avion": "Boeing 737-8MB",
+    "modelo_avion": "Boeing 737-800",
     "fabricante": "Boeing",
     "icao_type_code": "B738",
     "icao24_hex": "e0664b",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1076|Arrival": {
     "matricula": "",
@@ -297,7 +297,7 @@
     "icao24_hex": "",
     "operador": "",
     "confianza": "cache_modelo",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1976|Departure": {
     "matricula": "",
@@ -307,7 +307,7 @@
     "icao24_hex": "",
     "operador": "",
     "confianza": "cache_modelo",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1712|Arrival": {
     "matricula": "LV-GOO",
@@ -317,7 +317,7 @@
     "icao24_hex": "e073cf",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1713|Departure": {
     "matricula": "LV-GOO",
@@ -327,7 +327,7 @@
     "icao24_hex": "e073cf",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1979|Arrival": {
     "matricula": "",
@@ -337,7 +337,7 @@
     "icao24_hex": "",
     "operador": "",
     "confianza": "cache_modelo",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1079|Departure": {
     "matricula": "",
@@ -347,7 +347,7 @@
     "icao24_hex": "",
     "operador": "",
     "confianza": "cache_modelo",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1508|Arrival": {
     "matricula": "LV-CMA",
@@ -357,7 +357,7 @@
     "icao24_hex": "e03341",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "O4|661|Arrival": {
     "matricula": "",
@@ -387,7 +387,7 @@
     "icao24_hex": "",
     "operador": "",
     "confianza": "cache_modelo",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1980|Departure": {
     "matricula": "",
@@ -397,7 +397,7 @@
     "icao24_hex": "",
     "operador": "",
     "confianza": "cache_modelo",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   },
   "AR|1509|Departure": {
     "matricula": "LV-GUC",
@@ -407,6 +407,6 @@
     "icao24_hex": "e07543",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-18T08:38-03:00"
+    "ultima_vez": "2026-09-18T08:45-03:00"
   }
 }
