@@ -53,5 +53,9 @@
   "O4||": "B737",
   "O4|662|Departure": "B737",
   "O4||Departure": "B737",
-  "AR|1509|Departure": "B738"
+  "AR|1509|Departure": "B738",
+  "AR|1979|Arrival": "B738",
+  "AR|1079|Departure": "B738",
+  "AR|1080|Arrival": "B738",
+  "AR|1980|Departure": "B738"
 }
