@@ -174,64 +174,12 @@
     "hex": "e06413",
     "match_exacto": true
   },
-  "AR|1509|2026-09-19": {
-    "tipo": "B738",
-    "matricula": "LV-GUC",
-    "modelo": "Boeing 737-8SH",
-    "hex": "e07543",
-    "match_exacto": true
-  },
-  "G3|7723|2026-09-18": {
-    "tipo": "B38M",
-    "matricula": "PS-GPD",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "e49956",
-    "match_exacto": true
-  },
   "DM|6677|2026-09-18": {
     "tipo": "B38M",
     "matricula": "HI1103",
     "modelo": "Boeing 737 MAX 8",
     "hex": "0c4356",
     "match_exacto": true
-  },
-  "LA|8170|2026-09-19": {
-    "tipo": "A20N",
-    "matricula": "PS-LHC",
-    "modelo": "Airbus A320-271N",
-    "hex": "e49fc2",
-    "match_exacto": true
-  },
-  "LA|8171|2026-09-19": {
-    "tipo": "A20N",
-    "matricula": "PS-LHC",
-    "modelo": "Airbus A320-271N",
-    "hex": "e49fc2",
-    "match_exacto": true
-  },
-  "CM|882|2026-09-18": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-09-19": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-09-20": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
   },
   "CM|836|2026-09-17": {
     "tipo": "B38M",
@@ -265,7 +213,15 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1715|2026-09-18": {
+  "CM|897|2026-09-18": {
+    "tipo": "B38M",
+    "matricula": "HP-9814CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21de",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1704|2026-09-18": {
     "tipo": "B738",
     "matricula": "LV-GGQ",
     "modelo": "Boeing 737-8HX",
@@ -273,11 +229,43 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-09-18": {
+  "CM|882|2026-09-18": {
     "tipo": "B38M",
-    "matricula": "HP-9814CMP",
+    "matricula": "HP-9802CMP",
     "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21de",
+    "hex": "0c21a4",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-19": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-20": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7723|2026-09-18": {
+    "tipo": "B38M",
+    "matricula": "PS-GPD",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e49956",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|899|2026-09-18": {
+    "tipo": "B38M",
+    "matricula": "HP-9818CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21fa",
     "match_exacto": true,
     "source": "api"
   },
@@ -297,7 +285,7 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1704|2026-09-18": {
+  "AR|1715|2026-09-18": {
     "tipo": "B738",
     "matricula": "LV-GGQ",
     "modelo": "Boeing 737-8HX",
@@ -305,8 +293,64 @@
     "match_exacto": true,
     "source": "api"
   },
-  "G3|7723|2026-09-20": {
+  "AR|1716|2026-09-18": {
     "tipo": "B738",
+    "matricula": "LV-FYK",
+    "modelo": "Boeing 737-8MB",
+    "hex": "e0664b",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1705|2026-09-18": {
+    "tipo": "B738",
+    "matricula": "LV-FYK",
+    "modelo": "Boeing 737-8MB",
+    "hex": "e0664b",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-09-19": {
+    "tipo": "B38M",
+    "matricula": "HP-9802CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21a4",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-09-20": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-09-19": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-09-20": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1718|2026-09-20": {
+    "tipo": "B38M",
+    "matricula": "LV-HKU",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e082d5",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1719|2026-09-20": {
+    "tipo": "73M",
     "matricula": "",
     "modelo": "",
     "hex": "",
