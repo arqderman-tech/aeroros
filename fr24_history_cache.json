@@ -397,14 +397,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|836|2026-09-20": {
-    "tipo": "B38M",
-    "matricula": "HP-9809CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21b7",
-    "match_exacto": true,
-    "source": "api"
-  },
   "AR|1708|2026-09-19": {
     "tipo": "E190",
     "matricula": "LV-CIH",
@@ -461,28 +453,36 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|882|2026-09-21": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
+  "AR|1706|2026-09-22": {
+    "tipo": "E190",
+    "matricula": "LV-CKZ",
+    "modelo": "Embraer E190AR",
+    "hex": "e032da",
     "match_exacto": true,
     "source": "api"
   },
-  "CM|882|2026-09-22": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
+  "AR|1707|2026-09-22": {
+    "tipo": "E190",
+    "matricula": "LV-CKZ",
+    "modelo": "Embraer E190AR",
+    "hex": "e032da",
     "match_exacto": true,
     "source": "api"
   },
-  "CM|899|2026-09-22": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": false,
+  "CM|836|2026-09-20": {
+    "tipo": "B38M",
+    "matricula": "HP-9809CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21b7",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-09-21": {
+    "tipo": "B38M",
+    "matricula": "HP-9812CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21dc",
+    "match_exacto": true,
     "source": "api"
   },
   "CM|897|2026-09-20": {
@@ -493,11 +493,19 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-09-22": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
+  "LA|2432|2026-09-20": {
+    "tipo": "A319",
+    "matricula": "CC-CPM",
+    "modelo": "Airbus A319-132",
+    "hex": "e80260",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|2433|2026-09-20": {
+    "tipo": "A319",
+    "matricula": "CC-CPM",
+    "modelo": "Airbus A319-132",
+    "hex": "e80260",
     "match_exacto": true,
     "source": "api"
   },
@@ -509,11 +517,27 @@
     "match_exacto": true,
     "source": "api"
   },
+  "AR|1714|2026-09-21": {
+    "tipo": "B38M",
+    "matricula": "LV-HKV",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e082d6",
+    "match_exacto": true,
+    "source": "api"
+  },
   "AR|1715|2026-09-20": {
     "tipo": "E190",
     "matricula": "LV-CMB",
     "modelo": "Embraer E190AR",
     "hex": "e03342",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1715|2026-09-21": {
+    "tipo": "B38M",
+    "matricula": "LV-HKV",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e082d6",
     "match_exacto": true,
     "source": "api"
   },
@@ -533,15 +557,7 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|836|2026-09-21": {
-    "tipo": "B38M",
-    "matricula": "HP-9812CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21dc",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|836|2026-09-22": {
+  "CM|882|2026-09-21": {
     "tipo": "B738",
     "matricula": "",
     "modelo": "",
@@ -549,19 +565,51 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1706|2026-09-22": {
-    "tipo": "E190",
-    "matricula": "LV-CKZ",
-    "modelo": "Embraer E190AR",
-    "hex": "e032da",
+  "CM|882|2026-09-22": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1707|2026-09-22": {
+  "CM|882|2026-09-23": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-09-21": {
     "tipo": "E190",
-    "matricula": "LV-CKZ",
+    "matricula": "LV-CDZ",
     "modelo": "Embraer E190AR",
-    "hex": "e032da",
+    "hex": "e0311a",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-09-21": {
+    "tipo": "E190",
+    "matricula": "LV-CDZ",
+    "modelo": "Embraer E190AR",
+    "hex": "e0311a",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8170|2026-09-21": {
+    "tipo": "A320",
+    "matricula": "PR-MBH",
+    "modelo": "Airbus A320-232",
+    "hex": "e48011",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8171|2026-09-21": {
+    "tipo": "A320",
+    "matricula": "PR-MBH",
+    "modelo": "Airbus A320-232",
+    "hex": "e48011",
     "match_exacto": true,
     "source": "api"
   }
