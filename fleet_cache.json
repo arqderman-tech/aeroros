@@ -59,5 +59,7 @@
   "AR|1080|Arrival": "B738",
   "AR|1980|Departure": "B738",
   "AR|1080|Departure": "B738",
-  "AR|1710|Arrival": "B38M"
+  "AR|1710|Arrival": "B38M",
+  "AR|1070|Arrival": "B738",
+  "AR|1970|Departure": "B738"
 }
