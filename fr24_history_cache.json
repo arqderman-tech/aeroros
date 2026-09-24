@@ -653,51 +653,11 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|836|2026-09-23": {
-    "tipo": "B738",
-    "matricula": "HP-1836CMP",
-    "modelo": "Boeing 737-8V3",
-    "hex": "0c20a4",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "G3|7723|2026-09-23": {
-    "tipo": "B38M",
-    "matricula": "PS-GOL",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "e49eef",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|882|2026-09-22": {
     "tipo": "B738",
     "matricula": "HP-1836CMP",
     "modelo": "Boeing 737-8V3",
     "hex": "0c20a4",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-09-23": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-09-24": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-09-25": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
     "match_exacto": true,
     "source": "api"
   },
@@ -741,11 +701,91 @@
     "match_exacto": true,
     "source": "api"
   },
+  "CM|882|2026-09-23": {
+    "tipo": "B738",
+    "matricula": "HP-1716CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c205b",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-24": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-25": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-09-23": {
+    "tipo": "B738",
+    "matricula": "HP-1836CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c20a4",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-09-24": {
+    "tipo": "B738",
+    "matricula": "HP-1716CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c205b",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7723|2026-09-23": {
+    "tipo": "B38M",
+    "matricula": "PS-GOL",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e49eef",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-09-23": {
+    "tipo": "E190",
+    "matricula": "LV-CDZ",
+    "modelo": "Embraer E190AR",
+    "hex": "e0311a",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-09-23": {
+    "tipo": "E190",
+    "matricula": "LV-CDZ",
+    "modelo": "Embraer E190AR",
+    "hex": "e0311a",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1705|2026-09-25": {
+    "tipo": "B738",
+    "matricula": "LV-GVC",
+    "modelo": "Boeing 737-887",
+    "hex": "e07583",
+    "match_exacto": true,
+    "source": "api"
+  },
   "LA|8170|2026-09-23": {
     "tipo": "A20N",
     "matricula": "PS-LHC",
     "modelo": "Airbus A320-271N",
     "hex": "e49fc2",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8170|2026-09-25": {
+    "tipo": "A20N",
+    "matricula": "PR-XBO",
+    "modelo": "Airbus A320-271N",
+    "hex": "e49aaa",
     "match_exacto": true,
     "source": "api"
   },
@@ -765,11 +805,27 @@
     "match_exacto": true,
     "source": "api"
   },
-  "G3|7723|2026-09-25": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
+  "LA|8171|2026-09-25": {
+    "tipo": "A20N",
+    "matricula": "PR-XBO",
+    "modelo": "Airbus A320-271N",
+    "hex": "e49aaa",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1712|2026-09-25": {
+    "tipo": "E190",
+    "matricula": "LV-CPK",
+    "modelo": "Embraer E190AR",
+    "hex": "e0340b",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1713|2026-09-25": {
+    "tipo": "E190",
+    "matricula": "LV-CPK",
+    "modelo": "Embraer E190AR",
+    "hex": "e0340b",
     "match_exacto": true,
     "source": "api"
   }
