@@ -1,13 +1,14 @@
 ﻿mes,aerolinea_codigo,aerolinea_nombre,ruta,vuelos,asientos_totales,modelos,tipos
-2026-09,AR,Aerolíneas Argentinas,AEP → ROS,36,4722,"Boeing 737-8BK,Embraer E190AR,Boeing 737-7BD,Boeing 737 MAX 8,Boeing 737-800,Boeing 737-86J,Boeing 737-8SH,Boeing 737-887","B738,E190,B737,B38M"
+2026-09,AR,Aerolíneas Argentinas,AEP → ROS,41,5424,"Boeing 737-8BK,Embraer E190AR,Boeing 737-7BD,Boeing 737 MAX 8,Boeing 737-800,Boeing 737-86J,Boeing 737-8SH,Boeing 737-887","B738,E190,B737,B38M"
 2026-09,CM,Copa Airlines,PTY → ROS,19,3064,"Boeing 737 MAX 8,Boeing 737-800","B38M,B738"
+2026-09,LA,LATAM Airlines,GRU → ROS,7,1218,"Airbus A320neo,Airbus A320-214","A20N,A320"
 2026-09,LA,LATAM Airlines,LIM → ROS,7,1128,"Airbus A320-214,Airbus A320-232,Airbus A319-132","A320,A319"
-2026-09,LA,LATAM Airlines,GRU → ROS,6,1044,"Airbus A320neo,Airbus A320-214","A20N,A320"
 2026-09,G3,GOL Linhas Aéreas,GIG → ROS,5,930,"Boeing 737 MAX 8,Boeing 737-800","B38M,B738"
 2026-09,DM,Arajet,PUJ → ROS,4,740,Boeing 737 MAX 8,B38M
 2026-09,AR,Aerolíneas Argentinas,BRC → ROS,4,680,"Boeing 737-8BK,Boeing 737-800,Boeing 737 MAX 8,Boeing 737-8SH","B738,B38M"
-2026-09,AR,Aerolíneas Argentinas,SLA → ROS,3,477,"Boeing 737-887,Boeing 737-8SH,Boeing 737-7BD","B738,B737"
+2026-09,AR,Aerolíneas Argentinas,SLA → ROS,4,647,"Boeing 737-887,Boeing 737-8SH,Boeing 737-7BD,Boeing 737-8MB","B738,B737"
 2026-09,AR,Aerolíneas Argentinas,IGR → ROS,3,436,"Boeing 737-8SH,Boeing 737-8BK,Embraer E190AR","B738,E190"
+2026-09,AR,Aerolíneas Argentinas,EZE → ROS,3,362,"Embraer E190AR,Boeing 737-800","E190,B738"
+2026-09,AR,Aerolíneas Argentinas,SDE → ROS,1,170,Boeing 737-800,B738
 2026-09,AR,Aerolíneas Argentinas,VVI → ROS,1,170,Boeing 737-800,B738
 2026-09,O4,Andes Líneas Aéreas,BRC → ROS,1,149,Boeing 737-700,B737
-2026-09,AR,Aerolíneas Argentinas,EZE → ROS,1,96,Embraer E190AR,E190
