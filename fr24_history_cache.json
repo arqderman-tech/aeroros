@@ -893,30 +893,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|882|2026-09-25": {
-    "tipo": "B738",
-    "matricula": "HP-1719CMP",
-    "modelo": "Boeing 737-8V3",
-    "hex": "0c205e",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-09-26": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-09-27": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|836|2026-09-25": {
     "tipo": "B738",
     "matricula": "HP-1833CMP",
@@ -949,14 +925,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-09-25": {
-    "tipo": "B38M",
-    "matricula": "HP-9820CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21fc",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|897|2026-09-26": {
     "tipo": "B738",
     "matricula": "HP-1834CMP",
@@ -981,11 +949,83 @@
     "match_exacto": true,
     "source": "api"
   },
+  "ZP|2821|2026-09-26": {
+    "tipo": "CRJ2",
+    "matricula": "ZP-CRT",
+    "modelo": "Mitsubishi CRJ-200LR",
+    "hex": "e88100",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-25": {
+    "tipo": "B738",
+    "matricula": "HP-1719CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c205e",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-26": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-27": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-28": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-09-25": {
+    "tipo": "B38M",
+    "matricula": "HP-9820CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21fc",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|2432|2026-09-25": {
+    "tipo": "A319",
+    "matricula": "CC-COX",
+    "modelo": "Airbus A319-132",
+    "hex": "e8024f",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|2433|2026-09-25": {
+    "tipo": "A319",
+    "matricula": "CC-COX",
+    "modelo": "Airbus A319-132",
+    "hex": "e8024f",
+    "match_exacto": true,
+    "source": "api"
+  },
   "AR|1715|2026-09-25": {
     "tipo": "B738",
     "matricula": "LV-FUA",
     "modelo": "Boeing 737-8HX",
     "hex": "e06541",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1715|2026-09-26": {
+    "tipo": "B737",
+    "matricula": "LV-GOO",
+    "modelo": "Boeing 737-7BD",
+    "hex": "e073cf",
     "match_exacto": true,
     "source": "api"
   },
@@ -1021,6 +1061,22 @@
     "match_exacto": true,
     "source": "api"
   },
+  "AR|1712|2026-09-25": {
+    "tipo": "E190",
+    "matricula": "LV-GIQ",
+    "modelo": "Embraer E190AR",
+    "hex": "e07251",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1713|2026-09-25": {
+    "tipo": "E190",
+    "matricula": "LV-GIQ",
+    "modelo": "Embraer E190AR",
+    "hex": "e07251",
+    "match_exacto": true,
+    "source": "api"
+  },
   "ZP|1820|2026-09-26": {
     "tipo": "CRJ2",
     "matricula": "",
@@ -1029,11 +1085,19 @@
     "match_exacto": false,
     "source": "api"
   },
-  "ZP|2821|2026-09-26": {
-    "tipo": "CRJ2",
-    "matricula": "ZP-CRT",
-    "modelo": "Mitsubishi CRJ-200LR",
-    "hex": "e88100",
+  "AR|1714|2026-09-26": {
+    "tipo": "B737",
+    "matricula": "LV-GOO",
+    "modelo": "Boeing 737-7BD",
+    "hex": "e073cf",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7723|2026-09-27": {
+    "tipo": "B737",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
     "match_exacto": true,
     "source": "api"
   }

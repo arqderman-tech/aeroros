@@ -76,5 +76,10 @@
   "ZP|2821|Departure": "CRJ2",
   "ZP||Departure": "CRJ2",
   "AR|1972|Arrival": "B738",
-  "AR|1085|Departure": "B738"
+  "AR|1085|Departure": "B738",
+  "AR|1975|Arrival": "B738",
+  "AR|1076|Departure": "B738",
+  "AR|1061|Departure": "B738",
+  "AR|1084|Arrival": "B738",
+  "AR|1983|Departure": "B738"
 }
