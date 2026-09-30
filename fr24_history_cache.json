@@ -1285,14 +1285,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-09-29": {
-    "tipo": "B38M",
-    "matricula": "HP-9820CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21fc",
-    "match_exacto": true,
-    "source": "api"
-  },
   "AR|1708|2026-09-28": {
     "tipo": "B38M",
     "matricula": "LV-KEI",
@@ -1365,22 +1357,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|882|2026-09-30": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-10-01": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|836|2026-09-29": {
     "tipo": "B38M",
     "matricula": "HP-9821CMP",
@@ -1394,14 +1370,6 @@
     "matricula": "HP-9806CMP",
     "modelo": "Boeing 737 MAX 8",
     "hex": "0c21a8",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "LA|2432|2026-09-29": {
-    "tipo": "A320",
-    "matricula": "CC-BAS",
-    "modelo": "Airbus A320-214",
-    "hex": "e80429",
     "match_exacto": true,
     "source": "api"
   },
@@ -1434,22 +1402,6 @@
     "matricula": "LV-CMB",
     "modelo": "Embraer E190AR",
     "hex": "e03342",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "AR|1509|2026-09-29": {
-    "tipo": "B737",
-    "matricula": "LV-GOO",
-    "modelo": "Boeing 737-7BD",
-    "hex": "e073cf",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "AR|1508|2026-09-29": {
-    "tipo": "B737",
-    "matricula": "LV-GOO",
-    "modelo": "Boeing 737-7BD",
-    "hex": "e073cf",
     "match_exacto": true,
     "source": "api"
   },
@@ -1493,8 +1445,120 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-10-01": {
+  "CM|897|2026-09-29": {
+    "tipo": "B38M",
+    "matricula": "HP-9820CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21fc",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|2432|2026-09-29": {
+    "tipo": "A320",
+    "matricula": "CC-BAS",
+    "modelo": "Airbus A320-214",
+    "hex": "e80429",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1509|2026-09-29": {
+    "tipo": "B737",
+    "matricula": "LV-GOO",
+    "modelo": "Boeing 737-7BD",
+    "hex": "e073cf",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1508|2026-09-29": {
+    "tipo": "B737",
+    "matricula": "LV-GOO",
+    "modelo": "Boeing 737-7BD",
+    "hex": "e073cf",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-09-30": {
     "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-10-01": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-10-02": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-09-30": {
+    "tipo": "E190",
+    "matricula": "LV-CDY",
+    "modelo": "Embraer E190AR",
+    "hex": "e03119",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-09-30": {
+    "tipo": "E190",
+    "matricula": "LV-CDY",
+    "modelo": "Embraer E190AR",
+    "hex": "e03119",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1704|2026-09-30": {
+    "tipo": "B738",
+    "matricula": "LV-GGQ",
+    "modelo": "Boeing 737-8HX",
+    "hex": "e071d1",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1715|2026-09-30": {
+    "tipo": "B738",
+    "matricula": "LV-GGQ",
+    "modelo": "Boeing 737-8HX",
+    "hex": "e071d1",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-01": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-02": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "2W|2075|2026-10-01": {
+    "tipo": "A359",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "2W|2076|2026-10-01": {
+    "tipo": "A359",
     "matricula": "",
     "modelo": "",
     "hex": "",
