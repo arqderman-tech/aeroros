@@ -1,9 +1,9 @@
 ﻿mes,aerolinea_codigo,aerolinea_nombre,ruta,vuelos,asientos_totales,modelos,tipos
-2026-10,CM,Copa Airlines,PTY → ROS,6,960,"Boeing 737-800,Boeing 737-8V3",B738
+2026-10,CM,Copa Airlines,PTY → ROS,8,1280,"Boeing 737-800,Boeing 737-8V3",B738
 2026-10,AR,Aerolíneas Argentinas,AEP → ROS,8,883,"Embraer E190AR,Boeing 737-7BD,Boeing 737-8SH","E190,B737,B738"
+2026-10,G3,GOL Linhas Aéreas,GIG → ROS,3,558,Boeing 737 MAX 8,B38M
 2026-10,2W,World2Fly,MAD → ROS,1,432,Airbus A350-900,A359
-2026-10,G3,GOL Linhas Aéreas,GIG → ROS,2,372,Boeing 737 MAX 8,B38M
-2026-10,LA,LATAM Airlines,GRU → ROS,2,348,"Airbus A320-214,Airbus A320neo","A320,A20N"
+2026-10,LA,LATAM Airlines,GRU → ROS,2,348,"Airbus A320-214,Airbus A320-232",A320
 2026-10,DM,Arajet,PUJ → ROS,1,185,Boeing 737 MAX 8,B38M
 2026-10,LA,LATAM Airlines,LIM → ROS,1,174,Airbus A320-214,A320
 2026-10,AR,Aerolíneas Argentinas,IGR → ROS,1,170,Boeing 737-8SH,B738
