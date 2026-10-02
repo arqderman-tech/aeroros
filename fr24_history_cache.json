@@ -1573,38 +1573,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|882|2026-10-01": {
-    "tipo": "B738",
-    "matricula": "HP-1852CMP",
-    "modelo": "Boeing 737-8V3",
-    "hex": "0c20be",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-10-02": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|882|2026-10-03": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|836|2026-10-01": {
-    "tipo": "B38M",
-    "matricula": "HP-9817CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21f9",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|836|2026-10-02": {
     "tipo": "B738",
     "matricula": "HP-1852CMP",
@@ -1690,6 +1658,54 @@
     "matricula": "LV-GUB",
     "modelo": "Boeing 737-8SH",
     "hex": "e07542",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-10-01": {
+    "tipo": "B738",
+    "matricula": "HP-1852CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c20be",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-10-02": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-10-03": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-01": {
+    "tipo": "B38M",
+    "matricula": "HP-9817CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21f9",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-10-02": {
+    "tipo": "E190",
+    "matricula": "LV-CET",
+    "modelo": "Embraer E190AR",
+    "hex": "e03154",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-10-02": {
+    "tipo": "E190",
+    "matricula": "LV-CET",
+    "modelo": "Embraer E190AR",
+    "hex": "e03154",
     "match_exacto": true,
     "source": "api"
   }

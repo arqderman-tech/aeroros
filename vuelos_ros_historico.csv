@@ -282,13 +282,9 @@
 1713,Departure,2026-10-01T14:30,2026-10-01T14:35,,Despegó,Aeroparque (AEP),AEP,ROS → AEP,AR,Aerolíneas Argentinas,#467FBC,3,A,LV-CMA,Embraer E190AR,Embraer,E190,e03341,,fids+fr24,abf57108-cf57-4a8b-a08b-2ae230e0046a,real,,96
 1711,Arrival,2026-10-01T14:40,2026-10-01T14:28,,Aterrizó,Iguazú (IGR),IGR,IGR → ROS,AR,Aerolíneas Argentinas,#467FBC,,,LV-GFQ,Boeing 737-8SH,Boeing,B738,e07191,,fids+fr24,ba2a07d4-57f5-47a1-9cdb-a325dd496b87,real,,170
 1710,Departure,2026-10-01T15:30,2026-10-01T15:36,,Despegó,Iguazú (IGR),IGR,ROS → IGR,AR,Aerolíneas Argentinas,#467FBC,3,A,LV-GFQ,Boeing 737-8SH,Boeing,B738,e07191,,fids+fr24,8e56822c-8889-444c-86be-72cd68f3c795,real,,170
-2W2075,Arrival,2026-10-01T18:00,2026-10-01T17:23,,Estimated 17:23,Madrid Barajas Airport (MAD),MAD,MAD → ROS,2W,World2Fly,,,,EC-NTB,Airbus A350-941,AIRBUS,A359,347245,,fr24,,real,,0
-75,Arrival,2026-10-01T18:00,,,Programado,Madrid (MAD),MAD,MAD → ROS,2W,World2Fly,#141E7A,,,,,,,,,fids,41f0b10e-8971-4a33-b58c-f907e7bc1fb5,,,0
-2075,Arrival,2026-10-01T18:00,2026-10-01T17:21,,Aterrizó,Madrid (MAD),MAD,MAD → ROS,2W,World2Fly,#141E7A,,,EC-NTB,Airbus A350-900,Airbus,A359,347245,,fids,41f0b10e-8971-4a33-b58c-f907e7bc1fb5,historico,histórico FR24,0
+2075,Arrival,2026-10-01T18:00,2026-10-01T17:21,,Aterrizó,Madrid (MAD),MAD,MAD → ROS,2W,World2Fly,#141E7A,,,EC-NTB,Airbus A350-900,Airbus,A359,347245,,fids,41f0b10e-8971-4a33-b58c-f907e7bc1fb5,historico,histórico FR24,432
 1718,Arrival,2026-10-01T19:50,2026-10-01T20:18,,Aterrizó,Aeroparque (AEP),AEP,AEP → ROS,AR,Aerolíneas Argentinas,#467FBC,,,LV-CPK,Embraer E190AR,Embraer,E190,e0340b,Aerolineas Argentinas,fids+fr24,0022f8b2-bae4-4a2f-ba70-0fdd79074178,real,,96
-76,Departure,2026-10-01T20:00,,,Programado,Madrid (MAD),MAD,ROS → MAD,2W,World2Fly,#141E7A,,,,,,,,,fids,1009156d-58ff-4572-8779-67a8f3b48f82,,,0
-2076,Departure,2026-10-01T20:00,2026-10-01T21:29,,Despegó,Madrid (MAD),MAD,ROS → MAD,2W,World2Fly,#141E7A,6,B,EC-NTB,Airbus A350-900,Airbus,A359,347245,,fids,1009156d-58ff-4572-8779-67a8f3b48f82,historico,histórico FR24,0
-2W2076,Departure,2026-10-01T20:00,2026-10-01T20:24,,Estimated dep 20:24,Madrid Barajas Airport (MAD),MAD,ROS → MAD,2W,World2Fly,,,,EC-NTB,Airbus A350-941,AIRBUS,A359,347245,,fr24,,real,SUPUESTO por flota,0
+2076,Departure,2026-10-01T20:00,2026-10-01T21:29,,Despegó,Madrid (MAD),MAD,ROS → MAD,2W,World2Fly,#141E7A,6,B,EC-NTB,Airbus A350-900,Airbus,A359,347245,,fids,1009156d-58ff-4572-8779-67a8f3b48f82,historico,histórico FR24,432
 1719,Departure,2026-10-01T20:20,,,Despegó,Ezeiza (EZE),EZE,ROS → EZE,AR,Aerolíneas Argentinas,#467FBC,3,A,LV-CPK,Embraer E190AR,Embraer,E190,e0340b,Aerolineas Argentinas,fids+fr24,f059f434-b307-4e6d-bf5c-2a09ba1801a8,real,,96
 882,Arrival,2026-10-02T00:17,2026-10-02T00:23,,Aterrizó,Panamá (PTY),PTY,PTY → ROS,CM,Copa Airlines,#15349E,,,,Boeing 737-800,Boeing,B738,,,fids+fr24,c303fc1a-d069-4801-a2e6-0d95137f02fd,historico,histórico FR24,160
 7722,Arrival,2026-10-02T01:10,2026-10-02T01:05,,Aterrizó,Río de Janeiro (GIG),GIG,GIG → ROS,G3,GOL Linhas Aéreas,#E27B2E,,,,Boeing 737 MAX 8,Boeing,B38M,,,fids+fr24,6fa1fc21-44e2-40a2-bf12-ed6c382d275d,cache_modelo,modelo del cache,186
@@ -299,9 +295,9 @@
 899,Arrival,2026-10-02T03:47,,,En horario,Panamá (PTY),PTY,PTY → ROS,CM,Copa Airlines,#15349E,,,,Boeing 737-8V3,Boeing,B738,,,fids,7514379b-6d4c-46e3-b2e5-50f9cb2c2e95,cache_modelo,modelo del cache,160
 897,Departure,2026-10-02T05:09,,,En horario,Panamá (PTY),PTY,ROS → PTY,CM,Copa Airlines,#15349E,,,,Boeing 737 MAX 8,Boeing,B38M,,,fids,8e5bbe05-e586-41fa-8d79-2dd980e571c7,cache_modelo,modelo del cache,166
 2432,Arrival,2026-10-02T06:10,2026-10-02T06:17,,Aterrizó,Lima (LIM),LIM,LIM → ROS,LA,LATAM Airlines,#0B044E,,,CC-BFO,Airbus A320-214,Airbus,A320,e80272,,fids+fr24,659371e8-a67a-4858-b720-d1e193f4475f,real,,174
-1708,Arrival,2026-10-02T07:35,,,En horario,Aeroparque (AEP),AEP,AEP → ROS,AR,Aerolíneas Argentinas,#467FBC,,,LV-CIF,Embraer E190AR,Embraer,E190,e03246,,fids+fr24,2cdad86b-d208-4779-b345-299dec5649e6,real,,96
-2433,Departure,2026-10-02T07:40,2026-10-02T07:51,,En horario,Lima (LIM),LIM,ROS → LIM,LA,LATAM Airlines,#0B044E,6,B,CC-BFO,Airbus A320-214,Airbus,A320,e80272,,fids+fr24,647e14a4-9ef8-46b7-8b7a-b3dbc8be606b,real,,174
-1709,Departure,2026-10-02T08:05,,,En horario,Aeroparque (AEP),AEP,ROS → AEP,AR,Aerolíneas Argentinas,#467FBC,,,LV-CIF,Embraer E190AR,Embraer,E190,e03246,,fids+fr24,bd1f2ac8-0ac8-4036-94ba-49d02e4a0828,real,,96
+1708,Arrival,2026-10-02T07:35,2026-10-02T07:27,,Aterrizó,Aeroparque (AEP),AEP,AEP → ROS,AR,Aerolíneas Argentinas,#467FBC,,,LV-CIF,Embraer E190AR,Embraer,E190,e03246,,fids+fr24,2cdad86b-d208-4779-b345-299dec5649e6,real,,96
+2433,Departure,2026-10-02T07:40,2026-10-02T07:35,,Despegó,Lima (LIM),LIM,ROS → LIM,LA,LATAM Airlines,#0B044E,6,B,CC-BFO,Airbus A320-214,Airbus,A320,e80272,LATAM Airlines,fids+fr24,647e14a4-9ef8-46b7-8b7a-b3dbc8be606b,real,,174
+1709,Departure,2026-10-02T08:05,2026-10-02T08:06,,Despegó,Aeroparque (AEP),AEP,ROS → AEP,AR,Aerolíneas Argentinas,#467FBC,3,A,LV-CIF,Embraer E190AR,Embraer,E190,e03246,,fids+fr24,bd1f2ac8-0ac8-4036-94ba-49d02e4a0828,real,,96
 8170,Arrival,2026-10-02T11:40,,,En horario,São Paulo (GRU),GRU,GRU → ROS,LA,LATAM Airlines,#0B044E,,,PR-TYN,Airbus A320-214,AIRBUS,A320,e490f0,LATAM Airlines,fids+fr24,883568c0-1b68-47d2-b16e-57cb980be83b,real,,174
 8171,Departure,2026-10-02T12:40,2026-10-02T12:51,,En horario,São Paulo (GRU),GRU,ROS → GRU,LA,LATAM Airlines,#0B044E,,,PR-TYN,Airbus A320-214,AIRBUS,A320,e490f0,LATAM Airlines,fids+fr24,19fd8a9e-fb7c-4a9a-8c36-05eb61425634,real,,174
 1716,Arrival,2026-10-02T14:15,,,En horario,Aeroparque (AEP),AEP,AEP → ROS,AR,Aerolíneas Argentinas,#467FBC,,,LV-GOO,Boeing 737-7BD,Boeing,B737,e073cf,,fids+fr24,3348574a-5c9d-4515-a55d-3232ac0a59b5,real,modelo del cache,137
@@ -320,5 +316,5 @@
 8171,Departure,2026-10-03T12:40,2026-10-03T12:51,,Programado,São Paulo (GRU),GRU,ROS → GRU,LA,LATAM Airlines,#0B044E,,,PR-XBE,Airbus A320neo,Airbus,A20N,e4953d,Latam Brasil,fids+fr24,44909ae3-9743-4119-bec6-d2ddbc38225e,historico,histórico FR24,174
 1706,Arrival,2026-10-03T14:10,,,Programado,Aeroparque (AEP),AEP,AEP → ROS,AR,Aerolíneas Argentinas,#467FBC,,,LV-FUC,Boeing 737-8SH,Boeing,B738,e06543,,fids+fr24,5680ade6-8312-4e73-ab73-f0eec8b91baf,real,,170
 1707,Departure,2026-10-03T14:50,,,Programado,Aeroparque (AEP),AEP,ROS → AEP,AR,Aerolíneas Argentinas,#467FBC,,,LV-FUC,Boeing 737-8SH,Boeing,B738,e06543,,fids+fr24,1f4b991c-aeff-4a23-8ca8-d7f554527db6,real,,170
-1509,Arrival,2026-10-03T19:40,,,Programado,Salta (SLA),SLA,SLA → ROS,AR,Aerolíneas Argentinas,#467FBC,,,LV-GUB,Boeing 737-8SH,Embraer,B738,e07542,,fids,456399d0-674c-49d7-bdfe-e05668b665dc,historico,histórico FR24,170
-1509,Departure,2026-10-03T20:20,,,Programado,Ezeiza (EZE),EZE,ROS → EZE,AR,Aerolíneas Argentinas,#467FBC,,,LV-GUB,Boeing 737-8SH,Embraer,B738,e07542,,fids,e422dbb8-ace4-4d0c-8509-fa5098c9aa67,historico,histórico FR24,170
+1509,Arrival,2026-10-03T19:40,,,Programado,Salta (SLA),SLA,SLA → ROS,AR,Aerolíneas Argentinas,#467FBC,,,LV-GUB,Boeing 737-8SH,Boeing,B738,e07542,,fids+fr24,456399d0-674c-49d7-bdfe-e05668b665dc,real,histórico FR24,170
+1509,Departure,2026-10-03T20:20,,,Programado,Ezeiza (EZE),EZE,ROS → EZE,AR,Aerolíneas Argentinas,#467FBC,,,LV-GUB,Boeing 737-8SH,Boeing,B738,e07542,,fids+fr24,e422dbb8-ace4-4d0c-8509-fa5098c9aa67,real,histórico FR24,170

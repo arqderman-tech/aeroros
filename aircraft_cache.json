@@ -10,14 +10,14 @@
     "ultima_vez": "2026-09-17T19:58-03:00"
   },
   "CM|836|Departure": {
-    "matricula": "HP-1852CMP",
-    "modelo_avion": "Boeing 737-8V3",
+    "matricula": "HP-9817CMP",
+    "modelo_avion": "Boeing 737 MAX 8",
     "fabricante": "Boeing",
-    "icao_type_code": "B738",
-    "icao24_hex": "0c20be",
+    "icao_type_code": "B38M",
+    "icao24_hex": "0c21f9",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "CM|899|Arrival": {
     "matricula": "HP-1832CMP",
@@ -57,7 +57,7 @@
     "icao24_hex": "e03248",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "LA|2433|Departure": {
     "matricula": "CC-BFR",
@@ -77,17 +77,17 @@
     "icao24_hex": "e03248",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "AR|1509|Arrival": {
-    "matricula": "LV-FVN",
-    "modelo_avion": "Embraer E190AR",
-    "fabricante": "Embraer",
-    "icao_type_code": "E190",
-    "icao24_hex": "e0658e",
+    "matricula": "LV-GUB",
+    "modelo_avion": "Boeing 737-8SH",
+    "fabricante": "Boeing",
+    "icao_type_code": "B738",
+    "icao24_hex": "e07542",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-26T15:25-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "AR|1508|Departure": {
     "matricula": "LV-CID",
@@ -97,7 +97,7 @@
     "icao24_hex": "e03244",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "AR|1706|Arrival": {
     "matricula": "LV-FUC",
@@ -107,7 +107,7 @@
     "icao24_hex": "e06543",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "AR|1707|Departure": {
     "matricula": "LV-FUC",
@@ -117,7 +117,7 @@
     "icao24_hex": "e06543",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "G3|7722|Arrival": {
     "matricula": "",
@@ -187,7 +187,7 @@
     "icao24_hex": "e073cf",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "LA|8171|Departure": {
     "matricula": "PR-TYN",
@@ -277,7 +277,7 @@
     "icao24_hex": "e073cf",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "AR|1705|Departure": {
     "matricula": "LV-GVC",
@@ -317,7 +317,7 @@
     "icao24_hex": "e03156",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "AR|1713|Departure": {
     "matricula": "LV-CEV",
@@ -327,7 +327,7 @@
     "icao24_hex": "e03156",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "AR|1979|Arrival": {
     "matricula": "LV-CDY",
@@ -357,7 +357,7 @@
     "icao24_hex": "e03244",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-02T06:27-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "O4|661|Arrival": {
     "matricula": "LV-KFW",
@@ -400,14 +400,14 @@
     "ultima_vez": "2026-09-19T14:50-03:00"
   },
   "AR|1509|Departure": {
-    "matricula": "LV-FVN",
-    "modelo_avion": "Embraer E190AR",
-    "fabricante": "Embraer",
-    "icao_type_code": "E190",
-    "icao24_hex": "e0658e",
+    "matricula": "LV-GUB",
+    "modelo_avion": "Boeing 737-8SH",
+    "fabricante": "Boeing",
+    "icao_type_code": "B738",
+    "icao24_hex": "e07542",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-09-26T15:25-03:00"
+    "ultima_vez": "2026-10-02T08:40-03:00"
   },
   "AR|1080|Departure": {
     "matricula": "LV-FUC",
