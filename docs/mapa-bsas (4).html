@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Lugares para comer — Buenos Aires (Oct 2026)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; display: flex; height: 100vh; height: 100dvh; overflow: hidden; }
+
+  #map { flex: 1; height: 100%; min-height: 0; }
+  #panel { width: 380px; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #14161a; color: #e8e8e8; padding: 16px; }
+
+  h1 { font-size: 19px; margin-bottom: 4px; }
+  .sub { color: #8a8f99; font-size: 12px; margin-bottom: 12px; }
+
+  /* --- Filtros --- */
+  .filtros { margin-bottom: 14px; }
+  .filtros .grupo { margin-bottom: 9px; }
+  .filtros .titulo { font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: #6d727c; margin-bottom: 5px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    border: 1px solid #333842; background: #1e2126; color: #c8ccd4;
+    border-radius: 20px; padding: 5px 11px; font-size: 12px; cursor: pointer;
+    transition: .15s; user-select: none; white-space: nowrap;
+  }
+  .chip:hover { background: #282c33; }
+  .chip.off { opacity: .38; }
+  .chip.on { color: #fff; border-color: transparent; font-weight: 600; }
+  .chip .cnt { font-size: 10px; opacity: .7; margin-left: 3px; }
+  .reset { background: none; border: none; color: #5dade2; font-size: 11.5px; cursor: pointer; padding: 2px 0; }
+
+  .card { background: #1e2126; border-radius: 10px; padding: 12px; margin-bottom: 10px; cursor: pointer; border-left: 4px solid #e74c3c; transition: .15s; }
+  .card:hover { background: #282c33; transform: translateX(3px); }
+  .card .name { font-weight: 600; font-size: 15px; margin-bottom: 2px; }
+  .card .barrio { color: #8a8f99; font-size: 12px; margin-bottom: 6px; }
+  .card .tag { display:inline-block; background:#2d323a; border-radius:4px; padding:1px 6px; font-size: 10.5px; margin: 2px 3px 2px 0; color:#b8bcc4;}
+  .card .price { color: #2ecc71; font-weight:600; font-size:12px;}
+  .card .notas { color: #e8e8e8; font-size: 11.5px; margin-top: 6px; line-height: 1.45; }
+  .card .reserva { color:#f1c40f; font-size:11px; margin-top:4px; }
+  .empty { color: #8a8f99; font-size: 13px; padding: 20px 4px; text-align: center; }
+
+  .legend { position:absolute; bottom:20px; left:20px; background:rgba(20,22,26,.92); color:#e8e8e8; padding:10px 12px; border-radius:8px; font-size:11.5px; z-index:1000; line-height:1.7;}
+  .legend b { font-size:12px; }
+  .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; vertical-align:middle;}
+
+  /* --- Móvil: apilar mapa arriba, panel abajo --- */
+  @media (max-width: 820px) {
+    body { flex-direction: column; }
+    #map { flex: none; height: 48dvh; height: 48vh; width: 100%; }
+    #panel { width: 100%; flex: 1; padding: 12px 14px; }
+    h1 { font-size: 16px; }
+    .sub { margin-bottom: 8px; }
+    .card:hover { transform: none; }
+    .chip { padding: 6px 12px; }
+    .legend { bottom: auto; top: 8px; left: 8px; padding: 6px 9px; font-size: 10px; line-height: 1.5; border-radius: 6px; }
+    .legend b { font-size: 10.5px; }
+    .dot { width: 7px; height: 7px; margin-right: 4px; }
+  }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="panel">
+  <h1>🍽️ Buenos Aires — Octubre 2026</h1>
+  <div class="sub"><span id="contador">22</span> lugares · click para centrar</div>
+
+  <div class="filtros">
+    <div class="grupo">
+      <div class="titulo">Momento</div>
+      <div class="chips" id="filtro-momento"></div>
+    </div>
+    <div class="grupo">
+      <div class="titulo">Tipo de plan</div>
+      <div class="chips" id="filtro-plan"></div>
+    </div>
+    <button class="reset" id="reset">✕ Limpiar filtros</button>
+  </div>
+
+  <div id="cards"></div>
+</div>
+<div class="legend">
+  <b>🕐 Cuándo ir</b><br>
+  <span class="dot" style="background:#e74c3c"></span>Cena &nbsp;
+  <span class="dot" style="background:#f39c12"></span>Almuerzo<br>
+  <span class="dot" style="background:#27ae60"></span>Desayuno &nbsp;
+  <span class="dot" style="background:#8e44ad"></span>Merienda<br>
+  <span class="dot" style="background:#3498db"></span>Familiar &nbsp;
+  <span class="dot" style="background:#95a5a6"></span>Liviano
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const lugares = [{"id": "sandino", "nombre": "Sandino", "barrio": "Colegiales / Chacarita", "dir": "Olleros 3891", "lat": -34.584675, "lon": -58.4523858, "tipo": "Restaurante / Bodegón de producto", "icono": "🍽️", "cocina": "Argentina / producto", "cat": ["cena", "fin_de_semana_almuerzo"], "dest": ["empanadas", "provoleta", "papas fritas", "mousse de chocolate"], "amb": "Íntimo, iluminación tenue, con onda", "precio": "$ (buena relación precio-calidad)", "reserva": "Recomendada fines de semana", "notas": "Elogiado por @fmendiguren: buen ambiente, servicio, comida y precio. Muy alineado."}, {"id": "mimo-bar", "nombre": "Mimo Bar", "barrio": "Palermo", "dir": "Honduras 5874", "lat": -34.5820491, "lon": -58.4391264, "tipo": "Bar / Restaurante (híbrido)", "icono": "🍸", "cocina": "Contemporánea sencilla bien ejecutada", "cat": ["cena", "citas"], "dest": ["hummus de coliflor", "tartare", "empanadas de cordero", "ojo de bife", "pasta de 40 yemas", "milanesa", "helado de sambayón"], "amb": "Oscuro-cool, apto citas", "precio": "$$ (no barato, pero calidad sin pretensiones)", "reserva": "Recomendada (se llena, sobre todo fines de semana)", "notas": "Cocineros ex La Huella y Corte Comedor. Reseñas muy positivas."}, {"id": "orno", "nombre": "Orno", "barrio": "Palermo", "dir": "Guatemala 4701 (Orno Cantina) / Alto Palermo", "lat": -34.5861484, "lon": -58.4244878, "tipo": "Pizzería de autor", "icono": "🍕", "cocina": "Pizza de autor", "cat": ["cena", "familiar", "almuerzo"], "dest": ["pizza de autor"], "amb": "Familiar", "precio": "$$", "reserva": "Recomendada", "notas": "Ideal planes familiares o pizza de calidad. Mencionada junto a Asadero."}, {"id": "casa-tsuji", "nombre": "Casa Tsuji", "barrio": "Palermo", "dir": "Armenia 1455", "lat": -34.5910911, "lon": -58.42959, "tipo": "Café japonés", "icono": "☕", "cocina": "Japonesa / pastelería", "cat": ["desayuno", "brunch", "merienda"], "dest": ["pastelería japonesa", "café"], "amb": "Lindo", "precio": "$$", "reserva": "No", "notas": "Muy recomendado para desayuno/brunch o merienda."}, {"id": "negro-hollywood", "nombre": "Negro Hollywood", "barrio": "Palermo", "dir": "Arévalo 2051", "lat": -34.5780861, "lon": -58.4370441, "tipo": "Cafetería de especialidad", "icono": "☕", "cocina": "Café de especialidad / pastelería", "cat": ["desayuno", "merienda", "almuerzo_liviano"], "dest": ["café excelente", "pastelería artesanal", "tartines"], "amb": "Libros y vinilos", "precio": "$$", "reserva": "No necesaria", "notas": "Nueva sucursal 2026. Una de las mejores cafeterías argentinas (ranking mundial de especialidad)."}, {"id": "asian-cantina", "nombre": "asian Cantina", "barrio": "Palermo", "dir": "Humboldt 1626", "lat": -34.5853307, "lon": -58.4360748, "tipo": "Restaurante asiático", "icono": "🍜", "cocina": "Sudeste asiático (filipina, tailandesa, vietnamita)", "cat": ["almuerzo", "cena"], "dest": ["cocina del sudeste asiático personal"], "amb": "Informal", "precio": "$$", "reserva": "No siempre, conviene en horarios pico", "notas": "Bien hecha, informal y rica."}, {"id": "suki", "nombre": "Suki", "barrio": "Chinatown / Belgrano", "dir": "Arribeños 2217", "lat": -34.556888, "lon": -58.4509835, "tipo": "Fast-casual japonés", "icono": "🍱", "cocina": "Japonesa / sandos", "cat": ["merienda", "almuerzo_liviano"], "dest": ["sandos japoneses", "matcha", "café de especialidad"], "amb": "Lindo, ritual omikuji", "precio": "$", "reserva": "No", "notas": "Apertura reciente. Formato fast-casual con alma."}, {"id": "kuro-kuma-cochino", "nombre": "Kuro Kuma / Cochino", "barrio": "Palermo (Vía Viva)", "dir": "Blanco Encalada 1800", "lat": -34.5559383, "lon": -58.4534773, "tipo": "Street food asiática", "icono": "🍜", "cocina": "Asiática / noodles", "cat": ["almuerzo", "cena"], "dest": ["fideos voladores malayos", "costillar Sichuan", "tteokbokki", "pad thai"], "amb": "Industrial-cálido, cocina a la vista", "precio": "$$ (buena relación precio-calidad para la zona)", "reserva": "Recomendada", "notas": "De los más mencionados como 'joyita' reciente."}, {"id": "burdo", "nombre": "Burdo", "barrio": "Colegiales", "dir": "Delgado 1199 (frente a plaza San Miguel de Garicoits)", "lat": -34.5769748, "lon": -58.458503, "tipo": "Restaurante familiar", "icono": "🍽️", "cocina": "Argentina", "cat": ["almuerzo", "cena", "familiar"], "dest": ["porciones generosas", "precios de barrio"], "amb": "Cocina visible, familiar", "precio": "$", "reserva": "No", "notas": "Apertura reciente, proyecto familiar. Muy hablado en la zona."}, {"id": "smak", "nombre": "Smak", "barrio": "Colegiales", "dir": "Virrey Avilés 3488", "lat": -34.5762326, "lon": -58.4606193, "tipo": "Restaurante", "icono": "🍽️", "cocina": "Argentina", "cat": ["almuerzo", "cena"], "dest": [], "amb": "A confirmar", "precio": "$$", "reserva": "A confirmar", "notas": "Poco detalle aportado."}, {"id": "social-corazon", "nombre": "Social Corazón", "barrio": "Palermo", "dir": "Guatemala 4802, esq. Borges", "lat": -34.5855453, "lon": -58.4255483, "tipo": "All-day (café, panadería, restaurante)", "icono": "🥐", "cocina": "Contemporánea", "cat": ["desayuno", "almuerzo", "cena", "merienda"], "dest": ["café", "panadería", "almuerzo", "cena"], "amb": "Lindo", "precio": "$$ (más accesible que El Preferido)", "reserva": "Recomendada", "notas": "Del mismo grupo de Don Julio / El Preferido. All-day."}, {"id": "burger-joint", "nombre": "Burger Joint", "barrio": "Palermo Soho", "dir": "Jorge Luis Borges 1766", "lat": -34.5875583, "lon": -58.4285949, "tipo": "Hamburguesería", "icono": "🍔", "cocina": "Hamburguesas", "cat": ["almuerzo", "cena"], "dest": ["hamburguesas de chorizo steak", "papas triples"], "amb": "Cool", "precio": "$$ (value de Palermo)", "reserva": "No", "notas": "Sigue siendo de las mejores opciones value de Palermo."}, {"id": "rioba-bodegon", "nombre": "Rioba Bodegón", "barrio": "Palermo Soho", "dir": "Costa Rica 4588", "lat": -34.5889, "lon": -58.42607, "tipo": "Bodegón", "icono": "🍽️", "cocina": "Argentina / bodegón", "cat": ["almuerzo", "cena"], "dest": [], "amb": "A confirmar", "precio": "$$", "reserva": "A confirmar", "notas": "Apertura 2026 en Palermo. Bodegón nuevo."}, {"id": "humano", "nombre": "Humano", "barrio": "Palermo", "dir": "Bonpland 1712", "lat": -34.5831808, "lon": -58.4372419, "tipo": "Restaurante", "icono": "🍽️", "cocina": "A confirmar", "cat": ["almuerzo", "cena"], "dest": [], "amb": "A confirmar", "precio": "$$", "reserva": "A confirmar", "notas": "Poco detalle aportado."}, {"id": "tres", "nombre": "Tres", "barrio": "Colegiales", "dir": "Teodoro García 2806", "lat": -34.57325, "lon": -58.44821, "tipo": "Cafetería", "icono": "☕", "cocina": "Café / cafetería", "cat": ["desayuno", "merienda", "almuerzo_liviano"], "dest": [], "amb": "A confirmar", "precio": "$$", "reserva": "No", "notas": "Cafetería en Colegiales."}, {"id": "ciro", "nombre": "Ciro", "barrio": "Palermo Soho", "dir": "Guatemala 4798", "lat": -34.58564, "lon": -58.42537, "tipo": "Bar y café", "icono": "🍸", "cocina": "Café / bar", "cat": ["desayuno", "merienda", "cena"], "dest": [], "amb": "A confirmar", "precio": "$$", "reserva": "A confirmar", "notas": "Bar y café en Palermo Soho."}, {"id": "via-viva", "nombre": "Vía Viva", "barrio": "Barrio Chino / Belgrano", "dir": "Arribeños 2100-2200 (patio gastronómico, Barrio Chino)", "lat": -34.55706, "lon": -58.45194, "tipo": "Patio gastronómico / mercado", "icono": "🏮", "cocina": "Variada (asiática, street food, cafés)", "cat": ["almuerzo", "merienda", "cena"], "dest": ["Kuro Kuma", "Cochino", "oferta gastronómica variada"], "amb": "Patio abierto con puestos, informal", "precio": "$$", "reserva": "No", "notas": "Patio gastronómico del Barrio Chino (Belgrano). Contiene a Kuro Kuma y Cochino, entre otros puestos."}, {"id": "mirador-central", "nombre": "Mirador Central (Palacio Libertad / ex-CCK)", "barrio": "Microcentro", "dir": "Sarmiento 151, piso 11 (Palacio Libertad)", "lat": -34.6035566, "lon": -58.3694842, "tipo": "Rooftop bar panorámico + cocina de autor", "icono": "🍸", "cocina": "Contemporánea / cocina de autor + carta de vinos federal", "cat": ["cena", "merienda"], "dest": ["vista 360° de Buenos Aires", "cócteles premium", "champagne", "carta de vinos"], "amb": "Rooftop elevado, panorámico, elegante", "precio": "$$$", "reserva": "Recomendada (por Instagram @miradorcentral.ba)", "notas": "Terraza-mirador en el piso 11 del Palacio Libertad (ex-CCK). Mar-Jue 17-00h, Vie-Sáb 17-01h, Dom 17-21h. Importante: cerró las visitas diurnas como mirador turístico y hoy funciona como espacio gastronómico/bar. Revisar horario y reserva antes de ir."}, {"id": "merienda-ar", "nombre": "Merienda", "barrio": "Palermo Soho", "dir": "Uriarte 2106", "lat": -34.5840505, "lon": -58.4271922, "tipo": "Café / pastelería", "icono": "🥐", "cocina": "Cafetería / pastelería", "cat": ["merienda", "desayuno", "brunch", "liviano"], "dest": ["merienda libre", "pastelería propia", "café de especialidad"], "amb": "Ochava luminosa frente a la plazoleta William Morris", "precio": "$$", "reserva": "No (colas en horario pico)", "notas": "Se presenta como 'merienda libre': tenedor libre de pastelería por tiempo limitado, con bebida incluida. Formato muy popular, conviene evitar el pico."}, {"id": "pasaje-carruajes", "nombre": "Pasaje de los Carruajes (Teatro Colón)", "barrio": "Microcentro / Tribunales", "dir": "Tucumán 1171 (Teatro Colón)", "lat": -34.6014395, "lon": -58.3848777, "tipo": "Confitería / café / restaurante", "icono": "☕", "cocina": "Cafetería / cocina de autor", "cat": ["desayuno", "merienda", "almuerzo", "cena"], "dest": ["arquitectura histórica del Colón", "high tea", "conciertos de cámara los domingos"], "amb": "Histórico, pasaje abovedado del Teatro Colón", "precio": "$$", "reserva": "Recomendada (por Riservi o teléfono)", "notas": "Café-confitería del Grupo L dentro del Teatro Colón, en el pasaje peatonal que une Viamonte con Toscanini. Entrada libre. High tea icónico; por la noche exige consumo mínimo. Abierto todos los días."}, {"id": "le-reve-bistro", "nombre": "Le Rêve Bistró", "barrio": "Palermo Soho", "dir": "Uriarte 1901", "lat": -34.5852977, "lon": -58.4286831, "tipo": "Bistró francés", "icono": "🇫🇷", "cocina": "Francesa de bistró (clásicos: boeuf bourguignon, escargots, crème brûlée)", "cat": ["cena", "citas"], "dest": ["boeuf bourguignon", "escargots", "crème brûlée", "carta de vinos franceses"], "amb": "Íntimo, cálido, estética de bistró parisino", "precio": "$$$", "reserva": "Necesaria (Woki / Instagram)", "notas": "Bistró francés clásico de Palermo Soho. Mar-Sáb por la noche; conviene reservar con días de anticipación. Excelente para una cena especial."}, {"id": "cochinchina", "nombre": "CoChinChina", "barrio": "Palermo Soho", "dir": "Armenia 1540", "lat": -34.590336, "lon": -58.4288565, "tipo": "Cocktail bar + cocina de autor", "icono": "🍸", "cocina": "Argentina contemporánea / fusión asiática", "cat": ["cena", "citas"], "dest": ["cócteles de autor (Inés de los Santos)", "cocina de fusión", "ambiente de bar"], "amb": "Bar oscuro y sofisticado, cocktails de nivel mundial", "precio": "$$$", "reserva": "Recomendada los fines de semana", "notas": "Cocktail bar de la bartender Inés de los Santos. Aparece en las listas de mejores bares de Buenos Aires; cocina de autor para acompañar. Entrada previa reserva recomendable."}];
+
+// Categorías "canónicas" para filtrar. Cada lugar ya trae sus cat normalizadas.
+const COLORES = {"cena":"#e74c3c","almuerzo":"#f39c12","desayuno":"#27ae60","brunch":"#16a085","merienda":"#8e44ad","citas":"#e91e63","familiar":"#3498db","almuerzo_liviano":"#95a5a6","fin_de_semana_almuerzo":"#d35400","liviano":"#95a5a6","bar":"#7f8c8d","vistas":"#16a085"};
+
+// Filtros de momento (comida) y de tipo de plan.
+const MOMENTO = [
+  {key:"cena",     label:"Cena",     color:"#e74c3c"},
+  {key:"almuerzo", label:"Almuerzo", color:"#f39c12"},
+  {key:"desayuno", label:"Desayuno", color:"#27ae60"},
+  {key:"merienda", label:"Merienda", color:"#8e44ad"}
+];
+const PLAN = [
+  {key:"familiar", label:"Familiar", color:"#3498db"},
+  {key:"liviano",  label:"Liviano",  color:"#95a5a6"}
+];
+
+// Un lugar "matchea" una key si la tiene en cat, o si tiene una variante equivalente.
+const EQUIV = {
+  almuerzo: ["almuerzo","fin_de_semana_almuerzo"],
+  liviano:  ["liviano","almuerzo_liviano"],
+  merienda: ["merienda","brunch"]
+};
+function matchea(l, key) {
+  const ks = EQUIV[key] || [key];
+  return ks.some(k => l.cat.includes(k));
+}
+function colorDe(cats) { for (let c of cats) if (COLORES[c]) return COLORES[c]; return '#888'; }
+
+const map = L.map('map').setView([-34.58, -58.44], 14);
+const TILES = [
+  { url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', attr: 'Esri &copy; OpenStreetMap contributors', max: 19 },
+  { url: 'https://a.tile.opentopomap.org/{z}/{x}/{y}.png', attr: '&copy; OpenTopoMap (CC-BY-SA)', max: 17 },
+  { url: 'https://tile.openstreetmap.de/{z}/{x}/{y}.png', attr: '&copy; OpenStreetMap contributors', max: 19 }
+];
+let idx = 0;
+function addTiles() {
+  const t = TILES[idx];
+  const layer = L.tileLayer(t.url, { attribution: t.attr, maxZoom: t.max, crossOrigin: true }).addTo(map);
+  let errs = 0;
+  layer.on('tileerror', () => {
+    if (++errs === 1 && idx < TILES.length - 1) { map.removeLayer(layer); idx++; addTiles(); }
+  });
+}
+addTiles();
+setTimeout(() => map.invalidateSize(), 200);
+
+const MARKER_HTML = (col, ico, dim) =>
+  `<div style="background:${col};width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;opacity:${dim?0.22:1};transition:opacity .2s;"><span style="transform:rotate(45deg);font-size:14px;">${ico}</span></div>`;
+
+const markers = {};
+lugares.forEach(l => {
+  const col = colorDe(l.cat);
+  const icon = L.divIcon({ className: '', html: MARKER_HTML(col, l.icono, false),
+    iconSize: [30,30], iconAnchor: [15,30], popupAnchor: [0,-30] });
+  const m = L.marker([l.lat, l.lon], {icon}).addTo(map);
+  const dest = l.dest.length ? `<div style="margin-top:5px;color:#8a8f99;font-size:11px;">⭐ ${l.dest.join(' · ')}</div>` : '';
+  m.bindPopup(`<b style="font-size:14px">${l.nombre}</b><br>
+    <span style="color:#888;font-size:11.5px">${l.tipo} · ${l.barrio}</span><br>
+    <span style="font-size:12px">${l.dir}</span>${dest}
+    <div style="margin-top:6px;font-size:12px;color:#333333">${l.notas}</div>
+    <div style="margin-top:5px;font-size:11px;color:#2ecc71">${l.precio}</div>
+    <div style="font-size:11px;color:#f1c40f">📅 ${l.reserva}</div>
+    <a target="_blank" style="display:inline-block;margin-top:8px;font-size:11.5px;color:#5dade2" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.nombre+' '+l.dir+' Buenos Aires')}">Abrir en Google Maps →</a>`, {maxWidth: 320, autoPanPadding: [20, 40], autoPanPaddingTopLeft: [20, 60]});
+  markers[l.id] = {marker: m, lugar: l, col};
+});
+window.addEventListener('orientationchange', () => setTimeout(() => map.invalidateSize(), 300));
+window.addEventListener('resize', () => map.invalidateSize());
+
+// --- Estado de filtros: arrays de keys activas por grupo ---
+const activos = { momento: new Set(), plan: new Set() };
+const cards = document.getElementById('cards');
+const contador = document.getElementById('contador');
+
+function pasar(l) {
+  const okM = activos.momento.size === 0 || [...activos.momento].some(k => matchea(l, k));
+  const okP = activos.plan.size === 0 || [...activos.plan].some(k => matchea(l, k));
+  return okM && okP;
+}
+
+function render() {
+  // limpiar cards
+  cards.innerHTML = '';
+  let n = 0;
+  lugares.forEach(l => {
+    const visible = pasar(l);
+    // marcador: atenuar los que no pasan (no los ocultamos para no perder contexto del mapa)
+    markers[l.id].marker.setIcon(L.divIcon({ className: '', html: MARKER_HTML(markers[l.id].col, l.icono, !visible),
+      iconSize: [30,30], iconAnchor: [15,30], popupAnchor: [0,-30] }));
+    markers[l.id].marker.setZIndexOffset(visible ? 0 : -1000);
+    if (!visible) return;
+    n++;
+    const catTags = l.cat.map(c => `<span class="tag">${c.replace(/_/g,' ')}</span>`).join('');
+    const d = document.createElement('div');
+    d.className = 'card'; d.style.borderLeftColor = markers[l.id].col;
+    d.innerHTML = `<div class="name">${l.icono} ${l.nombre}</div>
+      <div class="barrio">${l.barrio} · ${l.dir}</div>${catTags} <span class="price">${l.precio}</span>
+      <div class="notas">${l.notas}</div><div class="reserva">📅 ${l.reserva}</div>`;
+    d.onclick = () => {
+      const movil = window.innerWidth <= 820;
+      const z = movil ? 15 : 17;
+      const target = movil ? map.project([l.lat, l.lon], z).add([0, 90]) : [l.lat, l.lon];
+      const center = movil ? map.unproject(target, z) : target;
+      map.flyTo(center, z, {duration: 0.8});
+      markers[l.id].marker.openPopup();
+    };
+    cards.appendChild(d);
+  });
+  if (n === 0) cards.innerHTML = '<div class="empty">Sin resultados con esos filtros 🤷</div>';
+  contador.textContent = n;
+}
+
+// --- Construcción de chips ---
+function buildChips(cont, items, grupo) {
+  items.forEach(it => {
+    const el = document.createElement('div');
+    el.className = 'chip off';
+    el.style.setProperty('--c', it.color);
+    el.dataset.key = it.key;
+    el.innerHTML = `${it.label}<span class="cnt"></span>`;
+    el.onclick = () => {
+      const s = activos[grupo];
+      if (s.has(it.key)) s.delete(it.key); else s.add(it.key);
+      syncChips();
+      render();
+    };
+    cont.appendChild(el);
+  });
+}
+function syncChips() {
+  document.querySelectorAll('#filtro-momento .chip').forEach(c => {
+    const on = activos.momento.has(c.dataset.key);
+    c.classList.toggle('on', on); c.classList.toggle('off', !on);
+    c.style.background = on ? c.style.getPropertyValue('--c') : '';
+  });
+  document.querySelectorAll('#filtro-plan .chip').forEach(c => {
+    const on = activos.plan.has(c.dataset.key);
+    c.classList.toggle('on', on); c.classList.toggle('off', !on);
+    c.style.background = on ? c.style.getPropertyValue('--c') : '';
+  });
+  // contadores (cuántos lugares pasan con SOLO esa key del grupo, ignorando el otro grupo)
+  document.querySelectorAll('#filtro-momento .chip').forEach(c => {
+    c.querySelector('.cnt').textContent = lugares.filter(l => matchea(l, c.dataset.key)).length;
+  });
+  document.querySelectorAll('#filtro-plan .chip').forEach(c => {
+    c.querySelector('.cnt').textContent = lugares.filter(l => matchea(l, c.dataset.key)).length;
+  });
+}
+
+buildChips(document.getElementById('filtro-momento'), MOMENTO, 'momento');
+buildChips(document.getElementById('filtro-plan'), PLAN, 'plan');
+document.getElementById('reset').onclick = () => { activos.momento.clear(); activos.plan.clear(); syncChips(); render(); };
+
+syncChips();
+render();
+</script>
+</body>
+</html>
