@@ -97,5 +97,7 @@
   "O4|614(FERRY)|Arrival": "B737",
   "O4|615|Departure": "B737",
   "LA|2488|Arrival": "A319",
-  "LA|2491|Departure": "B763"
+  "LA|2491|Departure": "B763",
+  "2W|75|Arrival": "A359",
+  "2W|76|Departure": "A359"
 }
