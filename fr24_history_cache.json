@@ -2061,14 +2061,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|836|2026-10-08": {
-    "tipo": "B738",
-    "matricula": "HP-1823CMP",
-    "modelo": "Boeing 737-86N",
-    "hex": "0c2075",
-    "match_exacto": true,
-    "source": "api"
-  },
   "AR|1708|2026-10-07": {
     "tipo": "E190",
     "matricula": "LV-FPS",
@@ -2149,14 +2141,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|882|2026-10-09": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|882|2026-10-10": {
     "tipo": "B39M",
     "matricula": "",
@@ -2165,11 +2149,67 @@
     "match_exacto": true,
     "source": "api"
   },
+  "CM|836|2026-10-08": {
+    "tipo": "B738",
+    "matricula": "HP-1823CMP",
+    "modelo": "Boeing 737-86N",
+    "hex": "0c2075",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-09": {
+    "tipo": "B38M",
+    "matricula": "HP-9804CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21a6",
+    "match_exacto": true,
+    "source": "api"
+  },
   "AR|1709|2026-10-08": {
     "tipo": "E190",
     "matricula": "LV-CHR",
     "modelo": "Embraer E190AR",
     "hex": "e03212",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7722|2026-10-10": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7723|2026-10-09": {
+    "tipo": "B38M",
+    "matricula": "PS-GOL",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e49eef",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "DM|6677|2026-10-09": {
+    "tipo": "B38M",
+    "matricula": "HI1101",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c4355",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|2432|2026-10-09": {
+    "tipo": "A320",
+    "matricula": "CC-BFT",
+    "modelo": "Airbus A320-214",
+    "hex": "e80277",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1509|2026-10-10": {
+    "tipo": "B738",
+    "matricula": "LV-FQZ",
+    "modelo": "Boeing 737-8BK",
+    "hex": "e0645a",
     "match_exacto": true,
     "source": "api"
   }

@@ -10,14 +10,14 @@
     "ultima_vez": "2026-10-05T18:52-03:00"
   },
   "CM|836|Departure": {
-    "matricula": "HP-1727CMP",
-    "modelo_avion": "Boeing 737-8V3",
+    "matricula": "HP-9804CMP",
+    "modelo_avion": "Boeing 737 MAX 8",
     "fabricante": "Boeing",
-    "icao_type_code": "B738",
-    "icao24_hex": "0c2069",
+    "icao_type_code": "B38M",
+    "icao24_hex": "0c21a6",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "CM|899|Arrival": {
     "matricula": "HP-9816CMP",
@@ -50,14 +50,14 @@
     "ultima_vez": "2026-10-08T17:32-03:00"
   },
   "AR|1708|Arrival": {
-    "matricula": "LV-CHR",
+    "matricula": "LV-CDZ",
     "modelo_avion": "Embraer E190AR",
     "fabricante": "Embraer",
     "icao_type_code": "E190",
-    "icao24_hex": "e03212",
+    "icao24_hex": "e0311a",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T07:08-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "LA|2433|Departure": {
     "matricula": "CC-BFT",
@@ -67,7 +67,7 @@
     "icao24_hex": "e80277",
     "operador": "LATAM Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1709|Departure": {
     "matricula": "LV-CDZ",
@@ -77,7 +77,7 @@
     "icao24_hex": "e0311a",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1509|Arrival": {
     "matricula": "LV-KIT",
@@ -90,54 +90,54 @@
     "ultima_vez": "2026-10-06T06:51-03:00"
   },
   "AR|1508|Departure": {
-    "matricula": "LV-KIT",
-    "modelo_avion": "Boeing 737 MAX 8",
-    "fabricante": "",
-    "icao_type_code": "B38M",
-    "icao24_hex": "e0b254",
+    "matricula": "LV-CIF",
+    "modelo_avion": "Embraer E190AR",
+    "fabricante": "Embraer",
+    "icao_type_code": "E190",
+    "icao24_hex": "e03246",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-10-06T06:51-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1706|Arrival": {
-    "matricula": "LV-CID",
-    "modelo_avion": "Embraer E190AR",
-    "fabricante": "Embraer",
-    "icao_type_code": "E190",
-    "icao24_hex": "e03244",
+    "matricula": "LV-GVD",
+    "modelo_avion": "Boeing 737 MAX 8",
+    "fabricante": "BOEING",
+    "icao_type_code": "B38M",
+    "icao24_hex": "e07584",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-10-07T17:27-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1707|Departure": {
-    "matricula": "LV-CID",
-    "modelo_avion": "Embraer E190AR",
-    "fabricante": "Embraer",
-    "icao_type_code": "E190",
-    "icao24_hex": "e03244",
+    "matricula": "LV-GVD",
+    "modelo_avion": "Boeing 737 MAX 8",
+    "fabricante": "BOEING",
+    "icao_type_code": "B38M",
+    "icao24_hex": "e07584",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-10-07T17:27-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "G3|7722|Arrival": {
     "matricula": "",
-    "modelo_avion": "Boeing 737 MAX 8",
+    "modelo_avion": "Boeing 737-800",
     "fabricante": "Boeing",
-    "icao_type_code": "B38M",
+    "icao_type_code": "B738",
     "icao24_hex": "",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-09-30T06:24-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "G3|7723|Departure": {
-    "matricula": "PR-GGR",
-    "modelo_avion": "Boeing 737-8EH",
+    "matricula": "PS-GOL",
+    "modelo_avion": "Boeing 737 MAX 8",
     "fabricante": "Boeing",
-    "icao_type_code": "B738",
-    "icao24_hex": "e48396",
+    "icao_type_code": "B38M",
+    "icao24_hex": "e49eef",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-10-07T06:56-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "DM|6676|Arrival": {
     "matricula": "HI1103",
@@ -150,24 +150,24 @@
     "ultima_vez": "2026-09-17T20:22-03:00"
   },
   "DM|6677|Departure": {
-    "matricula": "HI1118",
+    "matricula": "HI1101",
     "modelo_avion": "Boeing 737 MAX 8",
     "fabricante": "Boeing",
     "icao_type_code": "B38M",
-    "icao24_hex": "0c43aa",
+    "icao24_hex": "0c4355",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-10-07T06:56-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "LA|8170|Arrival": {
-    "matricula": "PR-MHQ",
-    "modelo_avion": "Airbus A320-214",
+    "matricula": "PR-MBA",
+    "modelo_avion": "Airbus A320-232",
     "fabricante": "Airbus",
     "icao_type_code": "A320",
-    "icao24_hex": "e480d2",
+    "icao24_hex": "e47fa6",
     "operador": "LATAM Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1704|Arrival": {
     "matricula": "LV-GGQ",
@@ -180,24 +180,24 @@
     "ultima_vez": "2026-09-30T06:24-03:00"
   },
   "AR|1715|Departure": {
-    "matricula": "LV-GVE",
-    "modelo_avion": "Boeing 737 MAX 8",
-    "fabricante": "BOEING",
-    "icao_type_code": "B38M",
-    "icao24_hex": "e07585",
+    "matricula": "LV-GFQ",
+    "modelo_avion": "Boeing 737-8SH",
+    "fabricante": "Boeing",
+    "icao_type_code": "B738",
+    "icao24_hex": "e07191",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "LA|8171|Departure": {
-    "matricula": "PR-MHQ",
-    "modelo_avion": "Airbus A320-214",
+    "matricula": "PR-MBA",
+    "modelo_avion": "Airbus A320-232",
     "fabricante": "Airbus",
     "icao_type_code": "A320",
-    "icao24_hex": "e480d2",
+    "icao24_hex": "e47fa6",
     "operador": "LATAM Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1714|Arrival": {
     "matricula": "LV-GGQ",
@@ -270,14 +270,14 @@
     "ultima_vez": "2026-09-17T15:51-03:00"
   },
   "AR|1716|Arrival": {
-    "matricula": "LV-GVE",
-    "modelo_avion": "Boeing 737 MAX 8",
-    "fabricante": "BOEING",
-    "icao_type_code": "B38M",
-    "icao24_hex": "e07585",
+    "matricula": "LV-GFQ",
+    "modelo_avion": "Boeing 737-8SH",
+    "fabricante": "Boeing",
+    "icao_type_code": "B738",
+    "icao24_hex": "e07191",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1705|Departure": {
     "matricula": "LV-GVC",
@@ -317,7 +317,7 @@
     "icao24_hex": "e032da",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1713|Departure": {
     "matricula": "LV-CKZ",
@@ -327,7 +327,7 @@
     "icao24_hex": "e032da",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-08T17:32-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "AR|1979|Arrival": {
     "matricula": "LV-CDY",
@@ -350,14 +350,14 @@
     "ultima_vez": "2026-09-19T04:52-03:00"
   },
   "AR|1508|Arrival": {
-    "matricula": "LV-CPJ",
+    "matricula": "LV-CIF",
     "modelo_avion": "Embraer E190AR",
     "fabricante": "Embraer",
     "icao_type_code": "E190",
-    "icao24_hex": "e0340a",
+    "icao24_hex": "e03246",
     "operador": "",
     "confianza": "real",
-    "ultima_vez": "2026-10-03T05:55-03:00"
+    "ultima_vez": "2026-10-09T07:10-03:00"
   },
   "O4|661|Arrival": {
     "matricula": "LV-KFW",
