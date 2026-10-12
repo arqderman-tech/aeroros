@@ -2285,22 +2285,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "LA|8170|2026-10-12": {
-    "tipo": "A20N",
-    "matricula": "PR-XBH",
-    "modelo": "Airbus A320-271N",
-    "hex": "e49698",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "LA|8171|2026-10-12": {
-    "tipo": "A20N",
-    "matricula": "PR-XBH",
-    "modelo": "Airbus A320-271N",
-    "hex": "e49698",
-    "match_exacto": true,
-    "source": "api"
-  },
   "G3|7723|2026-10-11": {
     "tipo": "B38M",
     "matricula": "PR-XMI",
@@ -2325,27 +2309,11 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-10-11": {
-    "tipo": "B38M",
-    "matricula": "HP-9814CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21de",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|882|2026-10-11": {
     "tipo": "B738",
     "matricula": "HP-1829CMP",
     "modelo": "Boeing 737-8V3",
     "hex": "0c208c",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|836|2026-10-11": {
-    "tipo": "B39M",
-    "matricula": "HP-9930CMP",
-    "modelo": "Boeing 737 MAX 9",
-    "hex": "0c218b",
     "match_exacto": true,
     "source": "api"
   },
@@ -2362,14 +2330,6 @@
     "matricula": "CC-CPQ",
     "modelo": "Airbus A319-132",
     "hex": "e80209",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "LA|2432|2026-10-12": {
-    "tipo": "A319",
-    "matricula": "CC-COY",
-    "modelo": "Airbus A319-132",
-    "hex": "e80251",
     "match_exacto": true,
     "source": "api"
   },
@@ -2397,6 +2357,30 @@
     "match_exacto": true,
     "source": "api"
   },
+  "DM|6673|2026-10-12": {
+    "tipo": "B38M",
+    "matricula": "HI1103",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c4356",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-11": {
+    "tipo": "B39M",
+    "matricula": "HP-9930CMP",
+    "modelo": "Boeing 737 MAX 9",
+    "hex": "0c218b",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-10-11": {
+    "tipo": "B38M",
+    "matricula": "HP-9814CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21de",
+    "match_exacto": true,
+    "source": "api"
+  },
   "AR|1718|2026-10-11": {
     "tipo": "E190",
     "matricula": "LV-GIQ",
@@ -2413,31 +2397,63 @@
     "match_exacto": true,
     "source": "api"
   },
-  "DM|6673|2026-10-12": {
-    "tipo": "B38M",
-    "matricula": "HI1103",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c4356",
+  "CM|882|2026-10-12": {
+    "tipo": "B738",
+    "matricula": "HP-1823CMP",
+    "modelo": "Boeing 737-86N",
+    "hex": "0c2075",
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1706|2026-10-13": {
-    "tipo": "E190",
-    "matricula": "LV-CIF",
-    "modelo": "Embraer E190AR",
-    "hex": "e03246",
+  "LA|2432|2026-10-12": {
+    "tipo": "A319",
+    "matricula": "CC-COY",
+    "modelo": "Airbus A319-132",
+    "hex": "e80251",
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1707|2026-10-13": {
-    "tipo": "E190",
-    "matricula": "LV-CIF",
-    "modelo": "Embraer E190AR",
-    "hex": "e03246",
+  "AR|1708|2026-10-12": {
+    "tipo": "B737",
+    "matricula": "LV-GOO",
+    "modelo": "Boeing 737-7BD",
+    "hex": "e073cf",
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-10-13": {
+  "LA|2433|2026-10-12": {
+    "tipo": "A319",
+    "matricula": "CC-COY",
+    "modelo": "Airbus A319-132",
+    "hex": "e80251",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-10-12": {
+    "tipo": "B737",
+    "matricula": "LV-GOO",
+    "modelo": "Boeing 737-7BD",
+    "hex": "e073cf",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8170|2026-10-12": {
+    "tipo": "A20N",
+    "matricula": "PR-XBH",
+    "modelo": "Airbus A320-271N",
+    "hex": "e49698",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8171|2026-10-12": {
+    "tipo": "A20N",
+    "matricula": "PR-XBH",
+    "modelo": "Airbus A320-271N",
+    "hex": "e49698",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7723|2026-10-14": {
     "tipo": "B738",
     "matricula": "",
     "modelo": "",
