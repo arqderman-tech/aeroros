@@ -2445,14 +2445,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-10-13": {
-    "tipo": "B38M",
-    "matricula": "HP-9821CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21fd",
-    "match_exacto": true,
-    "source": "api"
-  },
   "AR|1708|2026-10-12": {
     "tipo": "B737",
     "matricula": "LV-GOO",
@@ -2509,6 +2501,14 @@
     "match_exacto": true,
     "source": "api"
   },
+  "CM|897|2026-10-13": {
+    "tipo": "B38M",
+    "matricula": "HP-9821CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21fd",
+    "match_exacto": true,
+    "source": "api"
+  },
   "LA|2432|2026-10-13": {
     "tipo": "A319",
     "matricula": "CC-CPQ",
@@ -2525,11 +2525,67 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-10-15": {
-    "tipo": "B738",
+  "AR|1706|2026-10-13": {
+    "tipo": "E190",
+    "matricula": "LV-CKZ",
+    "modelo": "Embraer E190AR",
+    "hex": "e032da",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1707|2026-10-13": {
+    "tipo": "E190",
+    "matricula": "LV-CKZ",
+    "modelo": "Embraer E190AR",
+    "hex": "e032da",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7722|2026-10-15": {
+    "tipo": "B38M",
     "matricula": "",
     "modelo": "",
     "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-14": {
+    "tipo": "B738",
+    "matricula": "HP-1836CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c20a4",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7723|2026-10-14": {
+    "tipo": "B738",
+    "matricula": "PR-GUI",
+    "modelo": "Boeing 737-8EH",
+    "hex": "e48985",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "DM|6677|2026-10-14": {
+    "tipo": "B38M",
+    "matricula": "HI1082",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c4186",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1718|2026-10-15": {
+    "tipo": "E190",
+    "matricula": "LV-CIH",
+    "modelo": "Embraer E190AR",
+    "hex": "e03248",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1719|2026-10-15": {
+    "tipo": "E190",
+    "matricula": "LV-CIH",
+    "modelo": "Embraer E190AR",
+    "hex": "e03248",
     "match_exacto": true,
     "source": "api"
   }
