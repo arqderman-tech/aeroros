@@ -296,10 +296,15 @@ def _numeros_equivalentes(a: str, b: str) -> bool:
             and 0 < len(largo) - len(corto) <= 2 and largo.endswith(corto))
 
 
-def _hay_conflicto(id_a: str, mat_a: str, id_b: str, mat_b: str) -> bool:
-    """Evidencia de que son vuelos distintos: FIDS les dio IDs distintos
-    o volaron con aviones (matrículas) distintos."""
-    if id_a and id_b and id_a != id_b:
+def _hay_conflicto(id_a: str, mat_a: str, id_b: str, mat_b: str,
+                   num_a: str = "", num_b: str = "") -> bool:
+    """Evidencia de que son vuelos distintos: volaron con aviones
+    (matrículas) distintos o, si los números no son equivalentes, FIDS les
+    dio IDs distintos. Si los números SON equivalentes ("75" / "2075") un ID
+    distinto no prueba nada: FIDS publica el mismo vuelo dos veces con IDs
+    propios (código viejo y código nuevo)."""
+    if id_a and id_b and id_a != id_b \
+            and not _numeros_equivalentes(num_a, num_b):
         return True
     if mat_a and mat_b and mat_a.strip().upper() != mat_b.strip().upper():
         return True
@@ -900,7 +905,8 @@ def _db_buscar_equivalente(con: sqlite3.Connection, v: Vuelo, vuelo_norm: str,
         if ruta and f["ruta"] and f["ruta"] != ruta:
             continue
         if _hay_conflicto(v.id_externo or "", v.matricula or "",
-                          f["id_externo"] or "", f["matricula"] or ""):
+                          f["id_externo"] or "", f["matricula"] or "",
+                          vuelo_norm, f["vuelo_norm"]):
             continue
         candidatos.append(f)
     for f in candidatos:
@@ -942,10 +948,11 @@ def db_deduplicar() -> int:
                   _aero_canonica(f["aerolinea_codigo"] or ""),
                   f["horario_local"], f["ruta"] or "")
             por_slot.setdefault(ks, []).append(f)
-        info: dict[int, tuple[set, set]] = {}
+        info: dict[int, tuple[set, set, set]] = {}
         for f in filas:
             r = raiz(f["rid"])
-            ids, mats = info.setdefault(r, (set(), set()))
+            ids, mats, nums = info.setdefault(r, (set(), set(), set()))
+            nums.add(f["vuelo_norm"])
             if f["id_externo"]:
                 ids.add(f["id_externo"])
             if f["matricula"]:
@@ -958,10 +965,15 @@ def db_deduplicar() -> int:
                         continue
                     ids = info[ra][0] | info[rb][0]
                     mats = info[ra][1] | info[rb][1]
-                    if len(ids) > 1 or len(mats) > 1:
-                        continue          # evidencia de vuelos distintos
+                    nums = info[ra][2] | info[rb][2]
+                    if len(mats) > 1:
+                        continue          # otro avión: vuelos distintos
+                    if len(ids) > 1 and not any(
+                            _numeros_equivalentes(x, y)
+                            for x in info[ra][2] for y in info[rb][2]):
+                        continue          # IDs distintos y números sin relación
                     unir(ra, rb)
-                    info[raiz(ra)] = (ids, mats)
+                    info[raiz(ra)] = (ids, mats, nums)
 
         grupos: dict[int, list] = {}
         for f in filas:
@@ -981,6 +993,12 @@ def db_deduplicar() -> int:
                 reverse=True)[0]
 
             canon = _normalizar_vuelo(dinamico["vuelo_norm"])
+            # Si hay variantes del mismo número ("75" / "2075"), el canónico
+            # es el más largo (el IATA completo), así no oscila entre corridas.
+            for m in ms:
+                if _numeros_equivalentes(m["vuelo_norm"], canon) \
+                        and len(m["vuelo_norm"]) > len(canon):
+                    canon = m["vuelo_norm"]
             final = dict(aeronave[0])
             for campo in ("horario_real", "horario_estimado", "estado",
                           "puerta", "sector", "aerolinea_color", "id_externo",
@@ -1174,9 +1192,10 @@ def db_upsert(v: Vuelo) -> str:
             updates["nota"] = v._nota
 
         if equivalente:
-            # Mismo vuelo con otro número: manda el número oficial (FIDS).
+            # Mismo vuelo con otro número ("75" / "2075"): queda el más largo
+            # (IATA completo) para que no oscile entre corridas.
             if "fids" in (v.fuentes or "").split("+") \
-                    and vuelo_norm_nuevo != vuelo_norm:
+                    and len(vuelo_norm_nuevo) > len(vuelo_norm):
                 updates["vuelo_norm"] = vuelo_norm_nuevo
                 updates["vuelo"] = vuelo_norm_nuevo
                 accion = "update_parcial" if accion == "noop" else accion
@@ -2145,7 +2164,8 @@ def consolidar(fuentes: dict[str, list[Vuelo]]) -> list[Vuelo]:
         if len(cands) == 1 and len(hermanos) == 1:
             x = fr24_vuelos[cands[0]]
             if not _hay_conflicto(v_fids.id_externo, v_fids.matricula,
-                                  x.id_externo, x.matricula):
+                                  x.id_externo, x.matricula,
+                                  v_fids.vuelo, x.vuelo):
                 fr24_usados[cands[0]] = True
                 _fusionar(v_fids, x)
     for j, v_fr24 in enumerate(fr24_vuelos):
