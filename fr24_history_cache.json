@@ -2677,14 +2677,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|836|2026-10-16": {
-    "tipo": "B738",
-    "matricula": "HP-1837CMP",
-    "modelo": "Boeing 737-8V3",
-    "hex": "0c20a5",
-    "match_exacto": true,
-    "source": "api"
-  },
   "AR|1708|2026-10-15": {
     "tipo": "E190",
     "matricula": "LV-FPS",
@@ -2725,11 +2717,27 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1509|2026-10-17": {
+  "CM|882|2026-10-16": {
+    "tipo": "B38M",
+    "matricula": "HP-9813CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21dd",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-16": {
     "tipo": "B738",
-    "matricula": "LV-FQC",
-    "modelo": "Boeing 737-86J",
-    "hex": "e06443",
+    "matricula": "HP-1837CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c20a5",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-17": {
+    "tipo": "B38M",
+    "matricula": "HP-9813CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21dd",
     "match_exacto": true,
     "source": "api"
   },
@@ -2759,9 +2767,9 @@
   },
   "LA|8170|2026-10-17": {
     "tipo": "A20N",
-    "matricula": "PR-XBC",
+    "matricula": "PR-XBG",
     "modelo": "Airbus A320-271N",
-    "hex": "e49450",
+    "hex": "e49697",
     "match_exacto": true,
     "source": "api"
   },
@@ -2775,9 +2783,9 @@
   },
   "LA|8171|2026-10-17": {
     "tipo": "A20N",
-    "matricula": "PR-XBC",
+    "matricula": "PR-XBG",
     "modelo": "Airbus A320-271N",
-    "hex": "e49450",
+    "hex": "e49697",
     "match_exacto": true,
     "source": "api"
   },
@@ -2794,6 +2802,22 @@
     "matricula": "LV-FUB",
     "modelo": "Boeing 737-8HX",
     "hex": "e06542",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1718|2026-10-18": {
+    "tipo": "B38M",
+    "matricula": "LV-HKU",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e082d5",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1719|2026-10-18": {
+    "tipo": "B38M",
+    "matricula": "LV-HKU",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e082d5",
     "match_exacto": true,
     "source": "api"
   }
