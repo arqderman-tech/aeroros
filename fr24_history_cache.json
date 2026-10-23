@@ -3285,19 +3285,51 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1715|2026-10-23": {
+  "AR|1708|2026-10-23": {
     "tipo": "B738",
-    "matricula": "LV-GGQ",
-    "modelo": "Boeing 737-8HX",
-    "hex": "e071d1",
+    "matricula": "LV-FSK",
+    "modelo": "Boeing 737-8BK",
+    "hex": "e064cb",
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1509|2026-10-24": {
+  "AR|1709|2026-10-23": {
     "tipo": "B738",
-    "matricula": "LV-FUA",
-    "modelo": "Boeing 737-8HX",
-    "hex": "e06541",
+    "matricula": "LV-FSK",
+    "modelo": "Boeing 737-8BK",
+    "hex": "e064cb",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8170|2026-10-23": {
+    "tipo": "A320",
+    "matricula": "PR-MBG",
+    "modelo": "Airbus A320-232",
+    "hex": "e47fa7",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8171|2026-10-23": {
+    "tipo": "A320",
+    "matricula": "PR-MBG",
+    "modelo": "Airbus A320-232",
+    "hex": "e47fa7",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1716|2026-10-23": {
+    "tipo": "B38M",
+    "matricula": "LV-HKV",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e082d6",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1715|2026-10-23": {
+    "tipo": "B38M",
+    "matricula": "LV-HKV",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e082d6",
     "match_exacto": true,
     "source": "api"
   }
