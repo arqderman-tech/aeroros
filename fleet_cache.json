@@ -101,5 +101,13 @@
   "2W|75|Arrival": "A359",
   "2W|76|Departure": "A359",
   "O4|622|Arrival": "B737",
-  "O4|623 (FERRY)|Departure": "B737"
+  "O4|623 (FERRY)|Departure": "B737",
+  "DM|6207|Arrival": "B38M",
+  "CM|4168|Arrival": "B39M",
+  "CM|4168|Departure": "B39M",
+  "DM|6207|Departure": "B38M",
+  "CM|4350|Arrival": "B39M",
+  "CM|4350|Departure": "B39M",
+  "DM|6261|Arrival": "B38M",
+  "DM|6261|Departure": "B38M"
 }
