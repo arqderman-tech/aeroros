@@ -1,15 +1,15 @@
 ﻿mes,aerolinea_codigo,aerolinea_nombre,ruta,vuelos,asientos_totales,modelos,tipos
-2026-10,CM,Copa Airlines,PTY → ROS,51,8202,"Boeing 737-800,Boeing 737-8V3,Boeing 737 MAX 8,Boeing 737 MAX 9,Boeing 737-86N","B738,B38M,B39M"
-2026-10,AR,Aerolíneas Argentinas,AEP → ROS,69,7742,"Embraer E190AR,Boeing 737-7BD,Boeing 737-8SH,Boeing 737 MAX 8,Boeing 737-800","E190,B737,B738,B38M"
+2026-10,CM,Copa Airlines,PTY → ROS,52,8362,"Boeing 737-800,Boeing 737-8V3,Boeing 737 MAX 8,Boeing 737 MAX 9,Boeing 737-86N","B738,B38M,B39M"
+2026-10,AR,Aerolíneas Argentinas,AEP → ROS,72,8030,"Embraer E190AR,Boeing 737-7BD,Boeing 737-8SH,Boeing 737 MAX 8,Boeing 737-800","E190,B737,B738,B38M"
 2026-10,G3,GOL Linhas Aéreas,GIG → ROS,24,4368,"Boeing 737 MAX 8,Boeing 737-800,Boeing 737-700","B38M,B738,B737"
-2026-10,LA,LATAM Airlines,LIM → ROS,22,3438,"Airbus A320-214,Airbus A319-132,Airbus A320,Airbus A320-233","A320,A319"
-2026-10,2W,World2Fly,MAD → ROS,7,3024,"Airbus A350-900,Airbus A350-941",A359
-2026-10,LA,LATAM Airlines,GRU → ROS,16,2784,"Airbus A320-214,Airbus A320-232,Airbus A320neo","A320,A20N"
+2026-10,2W,World2Fly,MAD → ROS,9,3888,"Airbus A350-900,Airbus A350-941",A359
+2026-10,LA,LATAM Airlines,LIM → ROS,24,3786,"Airbus A320-214,Airbus A319-132,Airbus A320,Airbus A320-233","A320,A319"
+2026-10,LA,LATAM Airlines,GRU → ROS,18,3132,"Airbus A320-214,Airbus A320-232,Airbus A320neo,Airbus A320","A320,A20N"
 2026-10,DM,Arajet,PUJ → ROS,11,2035,Boeing 737 MAX 8,B38M
+2026-10,CM,Copa Airlines,EZE → ROS,9,1494,"Boeing 737 MAX 9,Boeing 737 MAX 8",B39M
+2026-10,DM,Arajet,EZE → ROS,8,1480,Boeing 737 MAX 8,B38M
+2026-10,AR,Aerolíneas Argentinas,SLA → ROS,8,1360,"Boeing 737-8SH,Boeing 737 MAX 8,Boeing 737-86J,Boeing 737-887","B738,B38M"
 2026-10,AR,Aerolíneas Argentinas,IGR → ROS,8,1286,"Boeing 737-8SH,Boeing 737 MAX 8,Embraer E190AR,Boeing 737-8LP,Boeing 737-8HX,Boeing 737-81D","B738,B38M,E190"
-2026-10,AR,Aerolíneas Argentinas,SLA → ROS,7,1190,"Boeing 737-8SH,Boeing 737 MAX 8,Boeing 737-86J,Boeing 737-887","B738,B38M"
-2026-10,CM,Copa Airlines,EZE → ROS,7,1162,"Boeing 737 MAX 9,Boeing 737 MAX 8",B39M
-2026-10,DM,Arajet,EZE → ROS,4,740,Boeing 737 MAX 8,B38M
 2026-10,AR,Aerolíneas Argentinas,EZE → ROS,7,672,Embraer E190AR,E190
 2026-10,O4,Andes Líneas Aéreas,MDQ → ROS,2,298,Boeing 737-700,B737
 2026-10,O4,Andes Líneas Aéreas,BRC → ROS,1,186,Boeing 737-8AS,B738
