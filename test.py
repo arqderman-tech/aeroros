@@ -311,6 +311,69 @@ def _hay_conflicto(id_a: str, mat_a: str, id_b: str, mat_b: str,
     return False
 
 
+# Máxima diferencia de horario programado para considerar que dos números
+# equivalentes ("75" / "2075") del mismo día, aerolínea y ruta son el mismo
+# vuelo. FIDS a veces publica el código viejo y el nuevo con horarios
+# distintos (ej. 21:10 y 22:10).
+TOLERANCIA_DUP_MIN = 180
+# Escala típica entre llegada y salida de un mismo avión (min).
+TURNAROUND_TIPICO_MIN = 120
+
+
+def _diff_min(h_a: str, h_b: str) -> int | None:
+    """Diferencia absoluta en minutos entre dos 'YYYY-MM-DDTHH:MM'."""
+    a, b = _parse_horario(h_a), _parse_horario(h_b)
+    if a is None or b is None:
+        return None
+    return int(abs((a - b).total_seconds()) // 60)
+
+
+def _es_duplicado_numero(num_a: str, hor_a: str,
+                         num_b: str, hor_b: str) -> bool:
+    """Mismo vuelo publicado con dos números equivalentes (distintos como
+    texto) y horarios iguales o cercanos."""
+    na, nb = _normalizar_vuelo(num_a), _normalizar_vuelo(num_b)
+    if not na or not nb or na == nb or not _numeros_equivalentes(na, nb):
+        return False
+    d = _diff_min(hor_a, hor_b)
+    return d is not None and d <= TOLERANCIA_DUP_MIN
+
+
+def _elegir_horario_duplicado(cands: list[tuple[str, str]],
+                              contrapartes: list[tuple[str, str]]) -> str:
+    """Entre varios (numero, horario) del mismo vuelo, elige cuál es el
+    horario válido. 1º el que deja un turnaround más cercano al típico
+    (120 min, dentro de 60-240) con el vuelo consecutivo (75↔76) ya publicado;
+    2º el del número más largo (código IATA completo); 3º el más tarde."""
+    def n2(n: str) -> int | None:
+        n = _normalizar_vuelo(n)
+        return int(n) % 100 if n.isdigit() else None
+
+    def desvio_turnaround(num: str, hor: str) -> int:
+        """Minutos de desvío respecto del turnaround típico con el vuelo
+        consecutivo; 10_000 si no hay contraparte plausible."""
+        a = n2(num)
+        mejor = 10_000
+        if a is None:
+            return mejor
+        for cn, ch in contrapartes:
+            c = n2(cn)
+            d = _diff_min(hor, ch)
+            if c is not None and d is not None \
+                    and abs(c - a) == 1 and 60 <= d <= 240:
+                mejor = min(mejor, abs(d - TURNAROUND_TIPICO_MIN))
+        return mejor
+
+    return min(cands, key=lambda c: (
+        desvio_turnaround(*c), -len(_normalizar_vuelo(c[0])),
+        _neg(c[1])))[1]
+
+
+def _neg(h: str) -> tuple:
+    """Clave para que min() prefiera el horario más tarde."""
+    return tuple(-ord(ch) for ch in h)
+
+
 @dataclass
 class Vuelo:
     vuelo: str = ""
@@ -899,11 +962,17 @@ def _db_buscar_equivalente(con: sqlite3.Connection, v: Vuelo, vuelo_norm: str,
         return None
     candidatos = []
     for f in con.execute(
-            "SELECT * FROM vuelos WHERE direccion=? AND fecha=? "
-            "AND aerolinea_codigo=? AND horario_local=?",
-            (direccion, fecha, aero, v.horario_local)).fetchall():
+            "SELECT * FROM vuelos WHERE direccion=? "
+            "AND fecha BETWEEN date(?, '-1 day') AND date(?, '+1 day') "
+            "AND aerolinea_codigo=?",
+            (direccion, fecha, fecha, aero)).fetchall():
         if ruta and f["ruta"] and f["ruta"] != ruta:
             continue
+        mismo_slot = f["horario_local"] == v.horario_local
+        if not mismo_slot and not _es_duplicado_numero(
+                f["vuelo_norm"], f["horario_local"],
+                vuelo_norm, v.horario_local):
+            continue          # otro horario: solo vale si es el mismo vuelo con otro número
         if _hay_conflicto(v.id_externo or "", v.matricula or "",
                           f["id_externo"] or "", f["matricula"] or "",
                           vuelo_norm, f["vuelo_norm"]):
@@ -912,7 +981,9 @@ def _db_buscar_equivalente(con: sqlite3.Connection, v: Vuelo, vuelo_norm: str,
     for f in candidatos:
         if _numeros_equivalentes(f["vuelo_norm"], vuelo_norm):
             return f
-    return candidatos[0] if len(candidatos) == 1 else None
+    # Sin número equivalente solo se acepta el mismo slot exacto y único.
+    mismos = [f for f in candidatos if f["horario_local"] == v.horario_local]
+    return mismos[0] if len(mismos) == 1 and len(candidatos) == 1 else None
 
 
 def db_deduplicar() -> int:
@@ -944,9 +1015,9 @@ def db_deduplicar() -> int:
                     unir(por_id[k], f["rid"])
                 else:
                     por_id[k] = f["rid"]
-            ks = (f["direccion"], f["fecha"],
+            ks = (f["direccion"],
                   _aero_canonica(f["aerolinea_codigo"] or ""),
-                  f["horario_local"], f["ruta"] or "")
+                  f["ruta"] or "")
             por_slot.setdefault(ks, []).append(f)
         info: dict[int, tuple[set, set, set]] = {}
         for f in filas:
@@ -963,6 +1034,16 @@ def db_deduplicar() -> int:
                     ra, rb = raiz(grupo[a]["rid"]), raiz(grupo[b]["rid"])
                     if ra == rb:
                         continue
+                    if grupo[a]["fecha"] != grupo[b]["fecha"] \
+                            and not _es_duplicado_numero(
+                                grupo[a]["vuelo_norm"], grupo[a]["horario_local"],
+                                grupo[b]["vuelo_norm"], grupo[b]["horario_local"]):
+                        continue      # otro día: solo vale si es el mismo vuelo movido de fecha
+                    if grupo[a]["horario_local"] != grupo[b]["horario_local"] \
+                            and not _es_duplicado_numero(
+                                grupo[a]["vuelo_norm"], grupo[a]["horario_local"],
+                                grupo[b]["vuelo_norm"], grupo[b]["horario_local"]):
+                        continue      # horarios distintos y no es el mismo número
                     ids = info[ra][0] | info[rb][0]
                     mats = info[ra][1] | info[rb][1]
                     nums = info[ra][2] | info[rb][2]
@@ -1013,6 +1094,18 @@ def db_deduplicar() -> int:
                         final[campo] = val
             final["vuelo_norm"] = canon
             final["vuelo"] = canon
+            if len({m["horario_local"] for m in ms}) > 1:
+                contra = [
+                    (r["vuelo_norm"], r["horario_local"]) for r in con.execute(
+                        "SELECT vuelo_norm, horario_local FROM vuelos "
+                        "WHERE fecha BETWEEN date(?, '-1 day') AND date(?, '+1 day') "
+                        "AND aerolinea_codigo=? AND direccion<>? "
+                        "AND aeropuerto_iata=?",
+                        (final["fecha"], final["fecha"], final["aerolinea_codigo"],
+                         final["direccion"], final["aeropuerto_iata"]))]
+                final["horario_local"] = _elegir_horario_duplicado(
+                    [(m["vuelo_norm"], m["horario_local"]) for m in ms], contra)
+                final["fecha"] = final["horario_local"][:10]
             final["fuentes"] = "+".join(sorted(
                 {x for m in ms for x in (m["fuentes"] or "").split("+") if x}))
             final["primera_vez"] = min(m["primera_vez"] for m in ms
@@ -1201,6 +1294,10 @@ def db_upsert(v: Vuelo) -> str:
                 accion = "update_parcial" if accion == "noop" else accion
             else:
                 updates.pop("vuelo", None)
+        if equivalente and fila["fecha"] != fecha \
+                and _es_duplicado_numero(fila["vuelo_norm"], fila["horario_local"],
+                                         vuelo_norm_nuevo, v.horario_local):
+            updates["fecha"] = fecha      # FIDS lo movió de día (cruce de medianoche)
         updates["ultima_vez"] = ahora
 
         if len(updates) > 1 or accion != "noop":
@@ -1208,7 +1305,7 @@ def db_upsert(v: Vuelo) -> str:
             con.execute(
                 f"UPDATE vuelos SET {set_clause} "
                 f"WHERE vuelo_norm=? AND direccion=? AND fecha=?",
-                list(updates.values()) + [vuelo_norm, direccion, fecha])
+                list(updates.values()) + [vuelo_norm, direccion, fila["fecha"]])
             con.commit()
 
         return accion
@@ -2106,6 +2203,59 @@ def _fusionar(principal: Vuelo, otro: Vuelo) -> None:
     ) - {""}))
 
 
+def colapsar_duplicados_fids(vuelos: list[Vuelo]) -> list[Vuelo]:
+    """FIDS a veces publica el mismo vuelo dos veces (código viejo y nuevo,
+    ej. "75" y "2075") con IDs y hasta horarios distintos. Deja un solo
+    registro por vuelo real, con el número más largo y el horario elegido
+    por _elegir_horario_duplicado. No junta si hay matrículas distintas."""
+    def aero(x: Vuelo) -> str:
+        return _aero_canonica(x.aerolinea_codigo or _extraer_aerolinea(x.vuelo))
+
+    grupos: dict[tuple, list[Vuelo]] = {}
+    for v in vuelos:
+        k = (v.direccion, aero(v), v.aeropuerto_iata)
+        grupos.setdefault(k, []).append(v)
+
+    descartar: set[int] = set()
+    for g in grupos.values():
+        for i in range(len(g)):
+            if id(g[i]) in descartar:
+                continue
+            cluster = [g[i]]
+            for j in range(i + 1, len(g)):
+                if id(g[j]) in descartar:
+                    continue
+                if any(_es_duplicado_numero(c.vuelo, c.horario_local,
+                                            g[j].vuelo, g[j].horario_local)
+                       and not _hay_conflicto("", c.matricula, "", g[j].matricula)
+                       for c in cluster):
+                    cluster.append(g[j])
+            if len(cluster) < 2:
+                continue
+            # contrapartes: vuelos de la otra dirección, misma aerolínea y fecha
+            contra = [(x.vuelo, x.horario_local) for x in vuelos
+                      if x.direccion != g[i].direccion
+                      and aero(x) == aero(g[i])
+                      and x.aeropuerto_iata == g[i].aeropuerto_iata]
+            hor = _elegir_horario_duplicado(
+                [(c.vuelo, c.horario_local) for c in cluster], contra)
+            principal = max(cluster, key=lambda c: (
+                c.horario_local == hor, len(_normalizar_vuelo(c.vuelo))))
+            for c in cluster:
+                if c is not principal:
+                    _fusionar(principal, c)
+                    descartar.add(id(c))
+            etiqueta = " / ".join(f"{c.vuelo}@{c.horario_local[11:16]}"
+                                  for c in cluster)
+            principal.horario_local = hor
+            # el número IATA completo (el más largo) es el canónico
+            principal.vuelo = max((c.vuelo for c in cluster),
+                                  key=lambda n: len(_normalizar_vuelo(n)))
+            print(f"  [FIDS] Duplicado colapsado: {etiqueta}"
+                  f" → {principal.vuelo}@{hor[11:16]}")
+    return [v for v in vuelos if id(v) not in descartar]
+
+
 def consolidar(fuentes: dict[str, list[Vuelo]]) -> list[Vuelo]:
     fids_vuelos = fuentes.get("fids") or []
     fr24_vuelos = fuentes.get("fr24") or []
@@ -2600,7 +2750,7 @@ def main() -> int:
             print(f"[FR24-hist] {len(hist_cache)} en cache histórico")
 
     fuentes: dict[str, list[Vuelo]] = {}
-    fuentes["fids"] = fids_obtener()
+    fuentes["fids"] = colapsar_duplicados_fids(fids_obtener())
 
     if not args.sin_fr24:
         print()
