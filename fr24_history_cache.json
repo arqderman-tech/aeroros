@@ -3573,35 +3573,11 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|882|2026-10-26": {
-    "tipo": "B38M",
-    "matricula": "HP-9813CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21dd",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|836|2026-10-26": {
     "tipo": "B738",
     "matricula": "HP-1821CMP",
     "modelo": "Boeing 737-8V3",
     "hex": "0c2073",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|836|2026-10-27": {
-    "tipo": "B38M",
-    "matricula": "HP-9813CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21dd",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|836|2026-10-28": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
     "match_exacto": true,
     "source": "api"
   },
@@ -3629,27 +3605,11 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1706|2026-10-28": {
-    "tipo": "E190",
-    "matricula": "LV-CMA",
-    "modelo": "Embraer E190AR",
-    "hex": "e03341",
-    "match_exacto": true,
-    "source": "api"
-  },
   "AR|1707|2026-10-26": {
     "tipo": "E190",
     "matricula": "LV-CDZ",
     "modelo": "Embraer E190AR",
     "hex": "e0311a",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "AR|1707|2026-10-28": {
-    "tipo": "E190",
-    "matricula": "LV-CMA",
-    "modelo": "Embraer E190AR",
-    "hex": "e03341",
     "match_exacto": true,
     "source": "api"
   },
@@ -3666,6 +3626,54 @@
     "matricula": "HP-9918CMP",
     "modelo": "Boeing 737 MAX 9",
     "hex": "0c2166",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-10-26": {
+    "tipo": "B38M",
+    "matricula": "HP-9813CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21dd",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1710|2026-10-26": {
+    "tipo": "E190",
+    "matricula": "LV-CMB",
+    "modelo": "Embraer E190AR",
+    "hex": "e03342",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1711|2026-10-26": {
+    "tipo": "E190",
+    "matricula": "LV-CMB",
+    "modelo": "Embraer E190AR",
+    "hex": "e03342",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-10-27": {
+    "tipo": "B38M",
+    "matricula": "HP-9813CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21dd",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-10-27": {
+    "tipo": "E190",
+    "matricula": "LV-CIG",
+    "modelo": "Embraer E190AR",
+    "hex": "e03247",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-10-27": {
+    "tipo": "E190",
+    "matricula": "LV-CIG",
+    "modelo": "Embraer E190AR",
+    "hex": "e03247",
     "match_exacto": true,
     "source": "api"
   },
