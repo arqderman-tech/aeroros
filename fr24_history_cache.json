@@ -3677,8 +3677,16 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1715|2026-10-28": {
-    "tipo": "E190",
+  "CM|836|2026-10-29": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-10-29": {
+    "tipo": "B738",
     "matricula": "",
     "modelo": "",
     "hex": "",
