@@ -1,9 +1,9 @@
 ﻿aerolinea_codigo,aerolinea_nombre,vuelos,asientos_totales,rutas,meses
-AR,Aerolíneas Argentinas,177,22270,7,2
-CM,Copa Airlines,97,15694,2,2
-LA,LATAM Airlines,64,10596,2,2
+AR,Aerolíneas Argentinas,180,22706,7,2
+CM,Copa Airlines,99,16032,2,2
+LA,LATAM Airlines,66,10944,2,2
 G3,GOL Linhas Aéreas,33,6042,1,2
-DM,Arajet,29,5365,2,2
+DM,Arajet,31,5735,2,2
 2W,World2Fly,9,3888,1,1
 O4,Andes Líneas Aéreas,4,633,2,2
 ZP,Paranair,1,50,1,1
