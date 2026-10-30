@@ -123,5 +123,9 @@
   "DM|6265|Arrival": "B38M",
   "DM|6265|Departure": "B38M",
   "LA|8030|Arrival": "A320",
-  "LA|8031|Departure": "A320"
+  "LA|8031|Departure": "A320",
+  "DM|3261|Arrival": "B38M",
+  "DM|3261|Departure": "B38M",
+  "DM|6263|Arrival": "B38M",
+  "DM|6263|Departure": "B38M"
 }
