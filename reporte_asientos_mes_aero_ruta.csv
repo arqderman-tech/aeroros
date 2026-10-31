@@ -1,6 +1,6 @@
 ﻿mes,aerolinea_codigo,aerolinea_nombre,ruta,vuelos,asientos_totales,modelos,tipos
-2026-11,CM,Copa Airlines,EZE → ROS,3,498,Boeing 737 MAX 9,B39M
-2026-11,CM,Copa Airlines,PTY → ROS,2,320,"Boeing 737-8V3,Boeing 737-800",B738
+2026-11,CM,Copa Airlines,EZE → ROS,4,664,Boeing 737 MAX 9,B39M
+2026-11,CM,Copa Airlines,PTY → ROS,3,480,"Boeing 737-8V3,Boeing 737-800",B738
 2026-11,AR,Aerolíneas Argentinas,AEP → ROS,3,288,Embraer E190AR,E190
 2026-11,LA,LATAM Airlines,GRU → ROS,1,220,Airbus A321neo,A21N
 2026-11,G3,GOL Linhas Aéreas,GIG → ROS,1,186,Boeing 737 MAX 8,B38M
