@@ -1,13 +1,14 @@
 ﻿mes,aerolinea_codigo,aerolinea_nombre,ruta,vuelos,asientos_totales,modelos,tipos
-2026-11,CM,Copa Airlines,EZE → ROS,14,2324,Boeing 737 MAX 9,B39M
-2026-11,DM,Arajet,EZE → ROS,9,1665,Boeing 737 MAX 8,B38M
+2026-11,CM,Copa Airlines,EZE → ROS,15,2490,Boeing 737 MAX 9,B39M
+2026-11,DM,Arajet,EZE → ROS,11,2035,Boeing 737 MAX 8,B38M
+2026-11,AR,Aerolíneas Argentinas,AEP → ROS,15,1514,"Embraer E190AR,Boeing 737-800","E190,B738"
+2026-11,LA,LATAM Airlines,GRU → ROS,7,1356,"Airbus A321-211,Airbus A320-232,Airbus A320neo,Airbus A320,Airbus A321-231","A321,A320,A20N"
 2026-11,CM,Copa Airlines,PTY → ROS,8,1280,"Boeing 737-8V3,Boeing 737-86N",B738
-2026-11,AR,Aerolíneas Argentinas,AEP → ROS,11,1056,Embraer E190AR,E190
-2026-11,LA,LATAM Airlines,GRU → ROS,5,962,"Airbus A321-211,Airbus A320-232,Airbus A320neo,Airbus A320","A321,A320,A20N"
-2026-11,G3,GOL Linhas Aéreas,GIG → ROS,4,744,Boeing 737 MAX 8,B38M
-2026-11,LA,LATAM Airlines,LIM → ROS,4,696,"Airbus A320-214,Airbus A320-232",A320
-2026-11,2W,World2Fly,MAD → ROS,1,432,Airbus A350-941,A359
+2026-11,G3,GOL Linhas Aéreas,GIG → ROS,5,930,"Boeing 737 MAX 8,Boeing 737-800","B38M,B738"
+2026-11,LA,LATAM Airlines,LIM → ROS,5,870,"Airbus A320-214,Airbus A320-232",A320
+2026-11,2W,World2Fly,MAD → ROS,2,864,Airbus A350-941,A359
 2026-11,DM,Arajet,PUJ → ROS,2,370,Boeing 737 MAX 8,B38M
+2026-11,G3,GOL Linhas Aéreas,GRU → ROS,1,186,Boeing 737 MAX 8,B38M
 2026-11,AR,Aerolíneas Argentinas,EZE → ROS,1,170,Boeing 737 MAX 8,B38M
 2026-11,AR,Aerolíneas Argentinas,SLA → ROS,1,170,Boeing 737 MAX 8,B38M
 2026-10,CM,Copa Airlines,PTY → ROS,58,9340,"Boeing 737-800,Boeing 737-8V3,Boeing 737 MAX 8,Boeing 737 MAX 9,Boeing 737-86N","B738,B38M,B39M"
