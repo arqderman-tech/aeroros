@@ -1,9 +1,9 @@
 ﻿mes,aerolinea_codigo,aerolinea_nombre,ruta,vuelos,asientos_totales,modelos,tipos
-2026-11,CM,Copa Airlines,EZE → ROS,24,3984,Boeing 737 MAX 9,B39M
+2026-11,CM,Copa Airlines,EZE → ROS,25,4150,Boeing 737 MAX 9,B39M
 2026-11,DM,Arajet,EZE → ROS,19,3515,Boeing 737 MAX 8,B38M
+2026-11,CM,Copa Airlines,PTY → ROS,15,2400,"Boeing 737-8V3,Boeing 737-86N,Boeing 737-800",B738
 2026-11,AR,Aerolíneas Argentinas,AEP → ROS,22,2260,"Embraer E190AR,Boeing 737-800,Boeing 737-8BK","E190,B738"
-2026-11,CM,Copa Airlines,PTY → ROS,14,2240,"Boeing 737-8V3,Boeing 737-86N,Boeing 737-800",B738
-2026-11,LA,LATAM Airlines,GRU → ROS,10,1924,"Airbus A321-211,Airbus A320-232,Airbus A320neo,Airbus A320,Airbus A321-231,Airbus A320-214","A321,A320,A20N"
+2026-11,LA,LATAM Airlines,GRU → ROS,11,2098,"Airbus A321-211,Airbus A320-232,Airbus A320neo,Airbus A320,Airbus A321-231,Airbus A320-214","A321,A320,A20N"
 2026-11,G3,GOL Linhas Aéreas,GIG → ROS,8,1488,"Boeing 737 MAX 8,Boeing 737-800","B38M,B738"
 2026-11,LA,LATAM Airlines,LIM → ROS,8,1392,"Airbus A320-214,Airbus A320-232,Airbus A320neo","A320,A20N"
 2026-11,2W,World2Fly,MAD → ROS,2,864,Airbus A350-941,A359
