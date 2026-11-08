@@ -139,5 +139,9 @@
   "G3|9582|Arrival": "B38M",
   "G3|9942|Departure": "B38M",
   "LA|9520|Arrival": "A20N",
-  "LA|9521 (FERRY)|Departure": "A20N"
+  "LA|9521 (FERRY)|Departure": "A20N",
+  "G3|9944|Arrival": "B38M",
+  "G3|9570|Departure": "B38M",
+  "AR|1953|Arrival": "B738",
+  "AR|1953|Departure": "B738"
 }
