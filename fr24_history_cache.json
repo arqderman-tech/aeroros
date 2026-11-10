@@ -4853,7 +4853,47 @@
     "match_exacto": true,
     "source": "api"
   },
+  "CM|882|2026-11-10": {
+    "tipo": "B738",
+    "matricula": "HP-1724CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c2064",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-11-10": {
+    "tipo": "E190",
+    "matricula": "LV-CET",
+    "modelo": "Embraer E190AR",
+    "hex": "e03154",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-11-10": {
+    "tipo": "E190",
+    "matricula": "LV-CET",
+    "modelo": "Embraer E190AR",
+    "hex": "e03154",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1706|2026-11-11": {
+    "tipo": "E190",
+    "matricula": "LV-CMA",
+    "modelo": "Embraer E190AR",
+    "hex": "e03341",
+    "match_exacto": true,
+    "source": "api"
+  },
   "CM|897|2026-11-11": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-11-12": {
     "tipo": "B738",
     "matricula": "",
     "modelo": "",

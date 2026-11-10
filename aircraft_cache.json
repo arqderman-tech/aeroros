@@ -1,23 +1,23 @@
 {
   "CM|882|Arrival": {
-    "matricula": "HP-1720CMP",
+    "matricula": "HP-1724CMP",
     "modelo_avion": "Boeing 737-8V3",
     "fabricante": "Boeing",
     "icao_type_code": "B738",
-    "icao24_hex": "0c205f",
+    "icao24_hex": "0c2064",
     "operador": "Copa Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-11-09T20:43-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "CM|836|Departure": {
-    "matricula": "HP-1720CMP",
+    "matricula": "HP-1837CMP",
     "modelo_avion": "Boeing 737-8V3",
     "fabricante": "Boeing",
     "icao_type_code": "B738",
-    "icao24_hex": "0c205f",
+    "icao24_hex": "0c20a5",
     "operador": "",
     "confianza": "historico",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "CM|899|Arrival": {
     "matricula": "HP-1822CMP",
@@ -47,7 +47,7 @@
     "icao24_hex": "e8020b",
     "operador": "LATAM Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "AR|1708|Arrival": {
     "matricula": "LV-CPJ",
@@ -57,7 +57,7 @@
     "icao24_hex": "e0340a",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "LA|2433|Departure": {
     "matricula": "CC-CQK",
@@ -67,7 +67,7 @@
     "icao24_hex": "e8020b",
     "operador": "LATAM Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "AR|1709|Departure": {
     "matricula": "LV-CPJ",
@@ -77,7 +77,7 @@
     "icao24_hex": "e0340a",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "AR|1509|Arrival": {
     "matricula": "LV-FQC",
@@ -100,24 +100,24 @@
     "ultima_vez": "2026-11-10T07:51-03:00"
   },
   "AR|1706|Arrival": {
-    "matricula": "LV-CHQ",
+    "matricula": "LV-CHS",
     "modelo_avion": "Embraer E190AR",
     "fabricante": "Embraer",
     "icao_type_code": "E190",
-    "icao24_hex": "e03211",
+    "icao24_hex": "e03213",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "AR|1707|Departure": {
-    "matricula": "LV-CET",
+    "matricula": "LV-CHS",
     "modelo_avion": "Embraer E190AR",
     "fabricante": "Embraer",
     "icao_type_code": "E190",
-    "icao24_hex": "e03154",
+    "icao24_hex": "e03213",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "G3|7722|Arrival": {
     "matricula": "",
@@ -187,7 +187,7 @@
     "icao24_hex": "e03155",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "LA|8171|Departure": {
     "matricula": "PR-MHR",
@@ -207,7 +207,7 @@
     "icao24_hex": "e03155",
     "operador": "Aerolineas Argentinas",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "AR|1711|Arrival": {
     "matricula": "LV-GVC",
@@ -647,7 +647,7 @@
     "icao24_hex": "347245",
     "operador": "Corendon Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "2W|2076|Departure": {
     "matricula": "EC-NTB",
@@ -657,7 +657,7 @@
     "icao24_hex": "347245",
     "operador": "Corendon Airlines",
     "confianza": "real",
-    "ultima_vez": "2026-11-05T18:22-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "2W|2W2075|Arrival": {
     "matricula": "EC-NTB",
@@ -1187,7 +1187,7 @@
     "icao24_hex": "e4a012",
     "operador": "LATAM Airlines",
     "confianza": "historico",
-    "ultima_vez": "2026-11-10T07:51-03:00"
+    "ultima_vez": "2026-11-10T18:14-03:00"
   },
   "LA|9521 (FERRY)|Departure": {
     "matricula": "PR-XBU",
