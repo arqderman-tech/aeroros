@@ -4917,14 +4917,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-11-12": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
   "LA|2432|2026-11-11": {
     "tipo": "A319",
     "matricula": "CC-CQK",
@@ -4933,19 +4925,75 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1718|2026-11-12": {
-    "tipo": "E190",
-    "matricula": "LV-CIG",
-    "modelo": "Embraer E190AR",
-    "hex": "e03247",
+  "LA|8170|2026-11-10": {
+    "tipo": "A320",
+    "matricula": "PR-MHR",
+    "modelo": "Airbus A320-214",
+    "hex": "e480f9",
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1719|2026-11-12": {
+  "LA|8171|2026-11-10": {
+    "tipo": "A320",
+    "matricula": "PR-MHR",
+    "modelo": "Airbus A320-214",
+    "hex": "e480f9",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1706|2026-11-10": {
     "tipo": "E190",
-    "matricula": "LV-CIG",
+    "matricula": "LV-CHS",
     "modelo": "Embraer E190AR",
-    "hex": "e03247",
+    "hex": "e03213",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-11-11": {
+    "tipo": "B738",
+    "matricula": "HP-1851CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c20bd",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-11-11": {
+    "tipo": "E190",
+    "matricula": "LV-CMB",
+    "modelo": "Embraer E190AR",
+    "hex": "e03342",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-11-11": {
+    "tipo": "E190",
+    "matricula": "LV-CMB",
+    "modelo": "Embraer E190AR",
+    "hex": "e03342",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-11-12": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-11-13": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7723|2026-11-13": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
     "match_exacto": true,
     "source": "api"
   }
