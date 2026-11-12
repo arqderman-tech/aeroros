@@ -2,13 +2,13 @@
 2026-11,CM,Copa Airlines,EZE → ROS,30,4980,Boeing 737 MAX 9,B39M
 2026-11,DM,Arajet,EZE → ROS,25,4625,Boeing 737 MAX 8,B38M
 2026-11,CM,Copa Airlines,PTY → ROS,22,3520,"Boeing 737-8V3,Boeing 737-86N,Boeing 737-800",B738
-2026-11,AR,Aerolíneas Argentinas,AEP → ROS,32,3220,"Embraer E190AR,Boeing 737-800,Boeing 737-8BK","E190,B738"
-2026-11,LA,LATAM Airlines,GRU → ROS,16,3014,"Airbus A321-211,Airbus A320-232,Airbus A320neo,Airbus A320,Airbus A321-231,Airbus A320-214","A321,A320,A20N"
+2026-11,AR,Aerolíneas Argentinas,AEP → ROS,33,3316,"Embraer E190AR,Boeing 737-800,Boeing 737-8BK","E190,B738"
+2026-11,LA,LATAM Airlines,GRU → ROS,17,3234,"Airbus A321-211,Airbus A320-232,Airbus A320neo,Airbus A320,Airbus A321-231,Airbus A320-214","A321,A320,A20N"
 2026-11,G3,GOL Linhas Aéreas,GIG → ROS,12,2232,"Boeing 737 MAX 8,Boeing 737-800","B38M,B738"
 2026-11,LA,LATAM Airlines,LIM → ROS,12,2058,"Airbus A320-214,Airbus A320-232,Airbus A320neo,Airbus A319-132","A320,A20N,A319"
 2026-11,2W,World2Fly,MAD → ROS,4,1728,Airbus A350-941,A359
 2026-11,DM,Arajet,PUJ → ROS,7,1295,Boeing 737 MAX 8,B38M
-2026-11,AR,Aerolíneas Argentinas,EZE → ROS,5,554,"Boeing 737 MAX 8,Embraer E190AR","B38M,E190"
+2026-11,AR,Aerolíneas Argentinas,EZE → ROS,6,650,"Boeing 737 MAX 8,Embraer E190AR","B38M,E190"
 2026-11,AR,Aerolíneas Argentinas,SLA → ROS,3,510,"Boeing 737 MAX 8,Boeing 737-8LP","B38M,B738"
 2026-11,G3,GOL Linhas Aéreas,GRU → ROS,2,372,"Boeing 737-800,Boeing 737 MAX 8","B738,B38M"
 2026-11,AR,Aerolíneas Argentinas,GRU → ROS,1,170,Boeing 737 MAX 8,B38M
