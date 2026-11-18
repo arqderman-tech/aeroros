@@ -5437,62 +5437,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|836|2026-11-19": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "AR|1708|2026-11-17": {
-    "tipo": "E190",
-    "matricula": "LV-FPT",
-    "modelo": "Embraer E190AR",
-    "hex": "e06414",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "AR|1709|2026-11-17": {
-    "tipo": "E190",
-    "matricula": "LV-FPT",
-    "modelo": "Embraer E190AR",
-    "hex": "e06414",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "LA|8170|2026-11-17": {
-    "tipo": "A20N",
-    "matricula": "PS-LHD",
-    "modelo": "Airbus A320-271N",
-    "hex": "e4a00c",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "LA|8171|2026-11-17": {
-    "tipo": "A20N",
-    "matricula": "PS-LHD",
-    "modelo": "Airbus A320-271N",
-    "hex": "e4a00c",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "AR|1710|2026-11-17": {
-    "tipo": "E190",
-    "matricula": "LV-CIE",
-    "modelo": "Embraer E190AR",
-    "hex": "e03245",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "AR|1711|2026-11-17": {
-    "tipo": "E190",
-    "matricula": "LV-CIE",
-    "modelo": "Embraer E190AR",
-    "hex": "e03245",
-    "match_exacto": true,
-    "source": "api"
-  },
   "AR|1706|2026-11-17": {
     "tipo": "E190",
     "matricula": "LV-CET",
@@ -5541,14 +5485,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|897|2026-11-18": {
-    "tipo": "B738",
-    "matricula": "HP-1824CMP",
-    "modelo": "Boeing 737-86N",
-    "hex": "0c2076",
-    "match_exacto": true,
-    "source": "api"
-  },
   "LA|2432|2026-11-18": {
     "tipo": "A319",
     "matricula": "CC-CPJ",
@@ -5562,6 +5498,102 @@
     "matricula": "CC-CPJ",
     "modelo": "Airbus A319-132",
     "hex": "e8025e",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-11-17": {
+    "tipo": "E190",
+    "matricula": "LV-FPT",
+    "modelo": "Embraer E190AR",
+    "hex": "e06414",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-11-18": {
+    "tipo": "E190",
+    "matricula": "LV-CIF",
+    "modelo": "Embraer E190AR",
+    "hex": "e03246",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-11-17": {
+    "tipo": "E190",
+    "matricula": "LV-FPT",
+    "modelo": "Embraer E190AR",
+    "hex": "e06414",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-11-18": {
+    "tipo": "E190",
+    "matricula": "LV-CIF",
+    "modelo": "Embraer E190AR",
+    "hex": "e03246",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8170|2026-11-17": {
+    "tipo": "A20N",
+    "matricula": "PS-LHD",
+    "modelo": "Airbus A320-271N",
+    "hex": "e4a00c",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|8171|2026-11-17": {
+    "tipo": "A20N",
+    "matricula": "PS-LHD",
+    "modelo": "Airbus A320-271N",
+    "hex": "e4a00c",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1710|2026-11-17": {
+    "tipo": "E190",
+    "matricula": "LV-CIE",
+    "modelo": "Embraer E190AR",
+    "hex": "e03245",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1711|2026-11-17": {
+    "tipo": "E190",
+    "matricula": "LV-CIE",
+    "modelo": "Embraer E190AR",
+    "hex": "e03245",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-11-18": {
+    "tipo": "B38M",
+    "matricula": "HP-9806CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21a8",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|882|2026-11-19": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-11-18": {
+    "tipo": "B738",
+    "matricula": "HP-1824CMP",
+    "modelo": "Boeing 737-86N",
+    "hex": "0c2077",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-11-20": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
     "match_exacto": true,
     "source": "api"
   }
