@@ -5533,14 +5533,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|836|2026-11-19": {
-    "tipo": "B38M",
-    "matricula": "HP-9806CMP",
-    "modelo": "Boeing 737 MAX 8",
-    "hex": "0c21a8",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|882|2026-11-18": {
     "tipo": "B38M",
     "matricula": "HP-9806CMP",
@@ -5565,43 +5557,11 @@
     "match_exacto": true,
     "source": "api"
   },
-  "CM|836|2026-11-20": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|836|2026-11-21": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
   "CM|897|2026-11-18": {
     "tipo": "B738",
     "matricula": "HP-1824CMP",
     "modelo": "Boeing 737-86N",
     "hex": "0c2076",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|897|2026-11-20": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "CM|897|2026-11-21": {
-    "tipo": "B738",
-    "matricula": "",
-    "modelo": "",
-    "hex": "",
     "match_exacto": true,
     "source": "api"
   },
@@ -5629,22 +5589,6 @@
     "match_exacto": true,
     "source": "api"
   },
-  "AR|1708|2026-11-19": {
-    "tipo": "B738",
-    "matricula": "LV-FUA",
-    "modelo": "Boeing 737-8HX",
-    "hex": "e06541",
-    "match_exacto": true,
-    "source": "api"
-  },
-  "AR|1709|2026-11-19": {
-    "tipo": "B738",
-    "matricula": "LV-FUA",
-    "modelo": "Boeing 737-8HX",
-    "hex": "e06541",
-    "match_exacto": true,
-    "source": "api"
-  },
   "AR|1712|2026-11-19": {
     "tipo": "E190",
     "matricula": "LV-CET",
@@ -5661,6 +5605,38 @@
     "match_exacto": true,
     "source": "api"
   },
+  "CM|836|2026-11-19": {
+    "tipo": "B38M",
+    "matricula": "HP-9806CMP",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c21a8",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|836|2026-11-20": {
+    "tipo": "B738",
+    "matricula": "HP-1729CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c206b",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1708|2026-11-19": {
+    "tipo": "B738",
+    "matricula": "LV-FUA",
+    "modelo": "Boeing 737-8HX",
+    "hex": "e06541",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1709|2026-11-19": {
+    "tipo": "B738",
+    "matricula": "LV-FUA",
+    "modelo": "Boeing 737-8HX",
+    "hex": "e06541",
+    "match_exacto": true,
+    "source": "api"
+  },
   "AR|1718|2026-11-19": {
     "tipo": "E190",
     "matricula": "LV-CIE",
@@ -5674,6 +5650,62 @@
     "matricula": "LV-CIE",
     "modelo": "Embraer E190AR",
     "hex": "e03245",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "G3|7723|2026-11-20": {
+    "tipo": "B38M",
+    "matricula": "PS-GPF",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "e49955",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "DM|6677|2026-11-20": {
+    "tipo": "B38M",
+    "matricula": "HI1104",
+    "modelo": "Boeing 737 MAX 8",
+    "hex": "0c4357",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-11-20": {
+    "tipo": "B738",
+    "matricula": "HP-1716CMP",
+    "modelo": "Boeing 737-8V3",
+    "hex": "0c205b",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "CM|897|2026-11-21": {
+    "tipo": "B738",
+    "matricula": "",
+    "modelo": "",
+    "hex": "",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|2432|2026-11-20": {
+    "tipo": "A320",
+    "matricula": "CC-BLO",
+    "modelo": "Airbus A320-214",
+    "hex": "e80483",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "LA|2433|2026-11-20": {
+    "tipo": "A320",
+    "matricula": "CC-BLO",
+    "modelo": "Airbus A320-214",
+    "hex": "e80483",
+    "match_exacto": true,
+    "source": "api"
+  },
+  "AR|1509|2026-11-21": {
+    "tipo": "B738",
+    "matricula": "LV-GVC",
+    "modelo": "Boeing 737-887",
+    "hex": "e07583",
     "match_exacto": true,
     "source": "api"
   }
