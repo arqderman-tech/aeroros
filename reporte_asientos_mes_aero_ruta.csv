@@ -1,15 +1,15 @@
 ﻿mes,aerolinea_codigo,aerolinea_nombre,ruta,vuelos,asientos_totales,modelos,tipos
+2026-11,AR,Aerolíneas Argentinas,AEP → ROS,73,7378,"Embraer E190AR,Boeing 737-800,Boeing 737-8BK,Boeing 737 MAX 8","E190,B738,B38M"
 2026-11,CM,Copa Airlines,PTY → ROS,46,7360,"Boeing 737-8V3,Boeing 737-86N,Boeing 737-800",B738
-2026-11,AR,Aerolíneas Argentinas,AEP → ROS,71,7186,"Embraer E190AR,Boeing 737-800,Boeing 737-8BK,Boeing 737 MAX 8","E190,B738,B38M"
-2026-11,LA,LATAM Airlines,GRU → ROS,27,5020,"Airbus A321-211,Airbus A320-232,Airbus A320neo,Airbus A320,Airbus A321-231,Airbus A320-214,Airbus A321neo","A321,A320,A20N,A21N"
+2026-11,LA,LATAM Airlines,GRU → ROS,28,5240,"Airbus A321-211,Airbus A320-232,Airbus A320neo,Airbus A320,Airbus A321-231,Airbus A320-214,Airbus A321neo","A321,A320,A20N,A21N"
 2026-11,CM,Copa Airlines,EZE → ROS,30,4980,Boeing 737 MAX 9,B39M
 2026-11,DM,Arajet,EZE → ROS,25,4625,Boeing 737 MAX 8,B38M
-2026-11,G3,GOL Linhas Aéreas,GIG → ROS,23,4278,"Boeing 737 MAX 8,Boeing 737-800","B38M,B738"
-2026-11,LA,LATAM Airlines,LIM → ROS,23,3852,"Airbus A320-214,Airbus A320-232,Airbus A320neo,Airbus A319-132","A320,A20N,A319"
+2026-11,G3,GOL Linhas Aéreas,GIG → ROS,24,4464,"Boeing 737 MAX 8,Boeing 737-800","B38M,B738"
+2026-11,LA,LATAM Airlines,LIM → ROS,24,4026,"Airbus A320-214,Airbus A320-232,Airbus A320neo,Airbus A319-132","A320,A20N,A319"
 2026-11,2W,World2Fly,MAD → ROS,8,3456,Airbus A350-941,A359
 2026-11,DM,Arajet,PUJ → ROS,14,2590,Boeing 737 MAX 8,B38M
+2026-11,AR,Aerolíneas Argentinas,SLA → ROS,8,1360,"Boeing 737 MAX 8,Boeing 737-8LP,Boeing 737-81D,Boeing 737-8SH,Boeing 737-887","B38M,B738"
 2026-11,AR,Aerolíneas Argentinas,EZE → ROS,12,1267,"Boeing 737 MAX 8,Embraer E190AR,Boeing 737-7BD","B38M,E190,B737"
-2026-11,AR,Aerolíneas Argentinas,SLA → ROS,7,1190,"Boeing 737 MAX 8,Boeing 737-8LP,Boeing 737-81D,Boeing 737-8SH,Boeing 737-887","B38M,B738"
 2026-11,G3,GOL Linhas Aéreas,GRU → ROS,2,372,"Boeing 737-800,Boeing 737 MAX 8","B738,B38M"
 2026-11,AR,Aerolíneas Argentinas,GRU → ROS,1,170,Boeing 737 MAX 8,B38M
 2026-10,CM,Copa Airlines,PTY → ROS,58,9340,"Boeing 737-800,Boeing 737-8V3,Boeing 737 MAX 8,Boeing 737 MAX 9,Boeing 737-86N","B738,B38M,B39M"
